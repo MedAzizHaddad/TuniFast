@@ -48,7 +48,7 @@ public class AlertMaker {
       //  styleAlert(alert);
         alert.showAndWait();
     }
-    
+
    public static void showSimpleAlert(String title, String content) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(title);
@@ -99,9 +99,9 @@ public class AlertMaker {
           
     public static void showMaterialDialog0(StackPane root, List<JFXButton> controls, String header, String body) {
         BoxBlur blur = new BoxBlur(3, 3, 3);
-//        if (controls.isEmpty()) {
-//            controls.add(new JFXButton("Okay"));
-//        }
+        if (controls.isEmpty()) {
+            controls.add(new JFXButton("Okay"));
+        }
         JFXDialogLayout dialogLayout = new JFXDialogLayout();
         JFXDialog dialog = new JFXDialog(root, dialogLayout, JFXDialog.DialogTransition.TOP);
 

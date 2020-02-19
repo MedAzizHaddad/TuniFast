@@ -13,6 +13,8 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import tunifast.esprit.Entitie.Reservation;
 import tunifast.esprit.Utils.DataBase;
 
@@ -89,5 +91,31 @@ public class ReservationCrud {
 
         return result;
     }
+     
+     public void AnnulerResPas(int idAn, int nbPl) {
+
+        try {
+            String requete1 = "UPDATE `reservation` SET `etatReservation`='annulé' WHERE `idAnnonce` = " + idAn + " ";
+            PreparedStatement pst;
+            pst = cnx.prepareStatement(requete1);
+            pst.executeUpdate();
+            //System.out.println("reservation annulé !");
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            String requete2 = "UPDATE `annonce` SET `nbrPlaceDispo`= nbrPlaceDispo + " + nbPl + " ,"
+                    + "`nbPlaceReser`= nbPlaceReser - " + nbPl + "   WHERE `idAnnonce` = " + idAn + " ";
+            PreparedStatement pst;
+            pst = cnx.prepareStatement(requete2);
+            pst.executeUpdate();
+            System.out.println("reservation annulé !");
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     
 }
