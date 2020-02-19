@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="534.0" prefWidth="219.0" stylesheets="@../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="534.0" prefWidth="219.0" style="-fx-background-color: #2A2E37;" stylesheets="@../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.ToolbarController">
    <children>
       <JFXToggleButton prefHeight="58.0" prefWidth="230.0" text="Chauffeur" textFill="#b2b2b2" toggleColor="#ffff8d" toggleLineColor="#ffff8d">
          <font>
