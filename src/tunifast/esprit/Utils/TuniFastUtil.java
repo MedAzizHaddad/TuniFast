@@ -38,7 +38,7 @@ import tunifast.esprit.gui.AcceuilController;
 public class TuniFastUtil {
 
     public static final String ICON_IMAGE_LOC = "/resources/icon.png";
-    public static final String MAIL_CONTENT_LOC = "/resources/mail_content.html";
+  //  public static final String MAIL_CONTENT_LOC = "/resources/mail_content.html";
     private static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss a");
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -61,7 +61,7 @@ public class TuniFastUtil {
             stage.setTitle(title);
             stage.setScene(new Scene(parent));
             stage.show();
-            setStageIcon(stage);
+            //setStageIcon(stage);
         } catch (IOException ex) {
             Logger.getLogger(AcceuilController.class.getName()).log(Level.SEVERE, null, ex);
         }

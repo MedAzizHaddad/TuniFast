@@ -6,6 +6,7 @@
 package tunifast.esprit.Service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -51,4 +52,20 @@ public class AnnonceCrud {
                 + " AND annonce.dateAnnonce > now() AND `nbrPlaceDispo` > 0";
            
     }  
+     public void AnnResAdd(int idAn, int nbPlARes) {
+        AnnonceCrud ann = new AnnonceCrud();
+        ReservationCrud res = new ReservationCrud();
+
+        try {
+            String requete2 = "UPDATE `annonce` SET `nbrPlaceDispo`=nbrPlaceDispo - "+nbPlARes+",`nbPlaceReser`=nbPlaceReser + "+nbPlARes+" WHERE `idAnnonce` =  ? ";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+            pst.setInt(1, idAn);
+    
+
+            pst.executeUpdate();
+            System.out.println("annoce a jour apres reservation");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

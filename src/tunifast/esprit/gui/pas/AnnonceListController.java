@@ -5,12 +5,14 @@
  */
 package tunifast.esprit.gui.pas;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -30,9 +32,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import tunifast.esprit.Entitie.Annonce;
+import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Service.AnnonceCrud;
+import tunifast.esprit.Service.PasServices;
+import tunifast.esprit.Service.ReservationCrud;
 import tunifast.esprit.Utils.DataBase;
+import tunifast.esprit.gui.alert.AlertMaker;
 
 /**
  * FXML Controller class
@@ -60,6 +68,10 @@ public class AnnonceListController implements Initializable {
     private TableColumn<Annonce, String> HeureColumn;
     @FXML
     private TableColumn<Annonce, Integer> PlaceColumn;
+    @FXML
+    private Text titre;
+    @FXML
+    private StackPane root;
 
     /**
      * Initializes the controller class.
@@ -99,7 +111,15 @@ public class AnnonceListController implements Initializable {
 
     public void setupData() {
 
-        try {
+       
+        
+        
+        
+
+
+        
+        
+        
             //        AnnonceCrud an = new AnnonceCrud();
 //        ArrayList<Annonce> rs = new ArrayList<Annonce>();
 //        rs = an.checkDataAvaliPas();
@@ -114,6 +134,8 @@ public class AnnonceListController implements Initializable {
 //            String heureAnnonce = rs.get(i).getHeureAnnonce();
 //            int nbrPlaceDispo = rs.get(i).getNbrPlaceDispo();
 //            int nbPlaceReser = rs.get(i).getNbPlaceReser();
+//------------------------------------------------------
+ try {
             DataBase handler = DataBase.getInstance();
             String qu = "SELECT * FROM annonce INNER JOIN user "
                     + "ON annonce.idUser = user.idUser AND user.role = 'chauffeur'"
@@ -140,9 +162,7 @@ public class AnnonceListController implements Initializable {
 
     }
 
-
-
-private void changeTableView(int index, int limit) {
+    private void changeTableView(int index, int limit) {
 
         int fromIndex = index * limit;
         int toIndex = Math.min(fromIndex + limit, masterData.size());
@@ -156,50 +176,48 @@ private void changeTableView(int index, int limit) {
 
     }
 
-    // @FXML
-//    private void handleReserver(ActionEvent event) {
-//        UserSession us = new UserSession().getInstace();
-//        ReservationCrud res = new ReservationCrud();
-//        Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
-//        //  System.out.println(selectedAn);
-//        if (selectedAn == null) {
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setHeaderText(null);
-//            alert.setContentText("aucune annonce selectionné !! veuillez selecionner un annonce");
-//            alert.showAndWait();
-//        } else {
-//
-//            TextInputDialog dialog = new TextInputDialog("1 , 2 , 3 ou 4");
-//            dialog.setTitle("Nombre de places à reserver");
-//            dialog.setHeaderText(null);
-//            dialog.setContentText("Veuillez saisir nombre de place à reserver");
-//
-//            Optional<String> result = dialog.showAndWait();
-//            if (result.isPresent()) {
-//
-//                if ((!result.get().equals("1")) && (!result.get().equals("2")) && (!result.get().equals("3")) && (!result.get().equals("4"))) {
-//                    Alert alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.setHeaderText(null);
-//                    alert.setContentText("Erreur de saisi !! (1,2,3 ou 4 )");
-//                    alert.showAndWait();
-//                } else if (Integer.parseInt(result.get()) > selectedAn.getNbrPlaceDispo()) {
-//                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                    alert.setHeaderText(null);
-//                    alert.setContentText("Nombre de place disponible sont insuffisants pour vous!");
-//                    alert.showAndWait();
-//
-//                } else {
-//
-//                    ReservationCrud res2 = new ReservationCrud();
-//                
-//                    PasServices.reserver(selectedAn.getIdAnnonce(), us.getIdUser(), Integer.parseInt(result.get()));
-//              
-//                }
-//
-//            }
-//
-//// The Java 8 way to get the response value (with lambda expression).
-//            //  result.ifPresent(name -> System.out.println("Your name: " + name));
-//        }
-//    }
+  
+    @FXML
+    private void reserver(ActionEvent event) {
+
+        UserSession us = new UserSession().getInstace();
+        ReservationCrud res = new ReservationCrud();
+        Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
+        //  System.out.println(selectedAn);
+        if (selectedAn == null) {
+            AlertMaker.showSimpleAlert("aucune annonce selectionné !! ", "veuillez selecionner une annonce");
+        } else {
+
+            TextInputDialog dialog = new TextInputDialog("1 , 2 , 3 ou 4");
+            dialog.setTitle("Nombre de places à reserver");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Veuillez saisir nombre de place à reserver");
+     
+
+// Traditional way to get the response value.
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent()) {
+                 if ((!result.get().equals("1")) && (!result.get().equals("2")) && (!result.get().equals("3")) && (!result.get().equals("4"))) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("Erreur de saisi !! (1,2,3 ou 4 )");
+                    alert.showAndWait();
+                } else if (Integer.parseInt(result.get()) > selectedAn.getNbrPlaceDispo()) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText(null);
+                    alert.setContentText("Nombre de place disponible sont insuffisants pour vous!");
+                    alert.showAndWait();
+
+                } else { System.out.println("hi");
+                 PasServices.reserver(selectedAn.getIdAnnonce(), us.getIdUser(), Integer.parseInt(result.get()));
+                     JFXButton btn = new JFXButton("Okay!");
+            AlertMaker.showMaterialDialog0(root, Arrays.asList(btn), "reservation bien ajouté", null);
+                }
+
+            }}
+    }
+
+    @FXML
+    private void afficher(ActionEvent event) {
+    }
 }

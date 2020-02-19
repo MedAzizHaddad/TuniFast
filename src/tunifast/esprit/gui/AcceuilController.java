@@ -22,9 +22,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import tunifast.esprit.Utils.TuniFastUtil;
 
 /**
  * FXML Controller class
@@ -37,6 +40,10 @@ public class AcceuilController implements Initializable {
     private JFXHamburger hamburger;
         @FXML
     private JFXDrawer drawer;
+    @FXML
+    private StackPane rootPane;
+    @FXML
+    private BorderPane rootAnchorPane;
 
     /**
      * Initializes the controller class.
@@ -47,22 +54,7 @@ public class AcceuilController implements Initializable {
         // TODO
     }    
 
-    private void anList(ActionEvent event) {
-        loadWindow("pas/annonceList.fxml", "title");
-    }
-    
-    void loadWindow(String loc , String title){
-        
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource(loc));
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle(title);
-            stage.setScene(new Scene(parent));
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AcceuilController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+  
 
     private void initDrawer() {
  try {
