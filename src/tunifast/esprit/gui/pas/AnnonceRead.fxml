@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="rootPane" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.pas.AnnonceReadController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="464.0" styleClass="custom-pane" stylesheets="@../../../../resources/design.css">
+         <children>
+            <VBox prefHeight="256.0" prefWidth="404.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTextField fx:id="txtChauf" labelFloat="true" promptText="Chauffeur">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtDep" labelFloat="true" layoutX="20.0" layoutY="30.0" promptText="Depart">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtArr" labelFloat="true" layoutX="20.0" layoutY="30.0" promptText="arrivee">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtDat" labelFloat="true" layoutX="10.0" layoutY="62.0" promptText="Date">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtHeure" labelFloat="true" layoutX="35.0" layoutY="45.0" promptText="Heure">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtPlaces" labelFloat="true" layoutX="35.0" layoutY="313.0" promptText="Places disponibles">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <HBox alignment="CENTER" prefHeight="47.0" prefWidth="404.0" spacing="30.0">
+                     <children>
+                        <JFXButton fx:id="btnReserver" layoutX="10.0" layoutY="10.0" onAction="#reserver" prefHeight="66.0" prefWidth="100.0" text="reserver" />
+                        <JFXButton fx:id="btnFermer" layoutX="177.0" layoutY="10.0" onAction="#fermer" prefHeight="66.0" prefWidth="100.0" text="fermer" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

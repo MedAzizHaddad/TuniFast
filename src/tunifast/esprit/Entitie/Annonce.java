@@ -26,6 +26,20 @@ public class Annonce {
     private String heureAnnonce;
     private int nbrPlaceDispo;
     private int nbPlaceReser;
+    ////////////
+    private String nomUser ;
+
+    public Annonce(int idAnnonce, int idUser, String lieuDepart, String lieuArrivee, String dateAnnonce, String heureAnnonce, int nbrPlaceDispo, int nbPlaceReser, String nomUser) {
+        this.idAnnonce = idAnnonce;
+        this.idUser = idUser;
+        this.lieuDepart = lieuDepart;
+        this.lieuArrivee = lieuArrivee;
+        this.dateAnnonce = dateAnnonce;
+        this.heureAnnonce = heureAnnonce;
+        this.nbrPlaceDispo = nbrPlaceDispo;
+        this.nbPlaceReser = nbPlaceReser;
+        this.nomUser = nomUser;
+    }
 
     public Annonce() {
     }
@@ -47,6 +61,14 @@ public class Annonce {
 
     public int getIdUser() {
         return idUser;
+    }
+
+    public void setNomUser(String nomUser) {
+        this.nomUser = nomUser;
+    }
+
+    public String getNomUser() {
+        return nomUser;
     }
 
     public String getLieuDepart() {

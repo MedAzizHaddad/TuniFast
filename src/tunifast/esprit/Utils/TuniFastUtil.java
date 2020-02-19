@@ -32,6 +32,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.gui.AcceuilController;
 
 
@@ -82,7 +83,17 @@ public class TuniFastUtil {
         return DATE_FORMAT.format(date);
     }
 
+  public static void parSession(int par){
+      UserSession us = new UserSession().getInstance();
+      
+      int x = us.getIdUser();
+      String y = us.getRole();
+      int z = par;
+
+      UserSession us1 = new UserSession().getInstance(x,y,z);
   
+      
+  }
 
 
 }

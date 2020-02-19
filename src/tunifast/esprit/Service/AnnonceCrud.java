@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tunifast.esprit.Entitie.Annonce;
@@ -29,29 +30,61 @@ public class AnnonceCrud {
     public AnnonceCrud() {
         cnx = DataBase.getInstance().getCnx();
     }
-    public void checkDataAll(){
+    public ArrayList<Annonce> checkDataAll(){
+    
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
            try {
                DataBase db = new DataBase();
-               String qu = "SELECT * FROM annonce";
-               ResultSet  rs = db.execQuery(qu);
-               while (rs.next()){
-                   int id = rs.getInt("idAnnonce");
-                   System.out.println(id);
-               }  } catch (SQLException ex) {
-               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
-           }
-    }
-    public void checkDataAvaliPas(){
-       ArrayList<Annonce>  result = new ArrayList<Annonce>() ;
-       ResultSet  rs = null ;
-         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();
-        DataBase db = new DataBase();
-        String qu = "SELECT * FROM annonce INNER JOIN user "
+                 String qu = "SELECT * FROM annonce INNER JOIN user "
                 + "ON annonce.idUser = user.idUser AND user.role = 'chauffeur'"
                 + " AND annonce.dateAnnonce > now() AND `nbrPlaceDispo` > 0";
-           
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           return res;
     }  
+         public ArrayList<Annonce> checkDataAvaliPas(){
+         
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+           try {
+               DataBase db = new DataBase();
+                 String qu = "SELECT * FROM annonce INNER JOIN user "
+                + "ON annonce.idUser = user.idUser AND user.role = 'chauffeur'"
+                + " AND annonce.dateAnnonce > now() AND `nbrPlaceDispo` > 0";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           return res;
+               } 
+    
      public void AnnResAdd(int idAn, int nbPlARes) {
         AnnonceCrud ann = new AnnonceCrud();
         ReservationCrud res = new ReservationCrud();
@@ -68,4 +101,37 @@ public class AnnonceCrud {
             System.out.println(ex.getMessage());
         }
     }
+     
+     public ArrayList<Annonce> ReadAnnonce(int id){
+         
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+
+                          
+           try {
+               DataBase db = new DataBase();
+               String qu = "SELECT * FROM annonce INNER JOIN user ON annonce.idUser = user.idUser WHERE annonce.idAnnonce ="+id+"";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setNomUser(rs.getString("nom"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           return res;
+               } 
+         
+         
+     
 }

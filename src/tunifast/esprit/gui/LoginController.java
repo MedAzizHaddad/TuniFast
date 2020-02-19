@@ -59,7 +59,7 @@ public class LoginController implements Initializable {
         } else if(UserTest.loginTest(getTel(), getPw()).get(0).getRole().equals("passager")) {
             int id =UserTest.loginTest(getTel(), getPw()).get(0).getIdUser() ;
             String role = UserTest.loginTest(getTel(), getPw()).get(0).getRole() ;
-            UserSession us = UserSession.getInstace(id , role );
+            UserSession us = UserSession.getInstance(id , role );
             
             closeStage();
             loadMain();

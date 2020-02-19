@@ -15,10 +15,16 @@ public final class UserSession {
 
     private int idUser;
     private String  role;
+    private int param ;
 
     private UserSession(int idUser, String  role) {
         this.idUser = idUser;
         this.role = role;
+    }
+     private UserSession(int idUser, String  role, int param) {
+        this.idUser = idUser;
+        this.role = role;
+        this.param = param ;
     }
 
     public UserSession() {
@@ -28,13 +34,17 @@ public final class UserSession {
         this.idUser = idUser;
     }
 //---------------------------------------------------
-    public static UserSession getInstace(int idUser , String  role) {
+    public static UserSession getInstance(int idUser , String  role) {
         if(instance == null) {
             instance = new UserSession(idUser,role);
         }
         return instance;
     }
-    public static UserSession getInstace(){
+    public static UserSession getInstance(){
+        return instance;
+    }
+  public static UserSession getInstance(int idUser , String  role , int param) {
+        instance = new UserSession(idUser,role,param);
         return instance;
     }
 
@@ -44,6 +54,10 @@ public final class UserSession {
 
     public String getRole() {
         return role;
+    }
+
+    public int getParam() {
+        return param;
     }
 
     public void cleanUserSession() {
