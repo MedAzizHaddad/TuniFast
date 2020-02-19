@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tunifast.esprit.Entitie.Reservation;
+import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Utils.DataBase;
 
 /**
@@ -23,16 +24,16 @@ import tunifast.esprit.Utils.DataBase;
  * @author mohamedazizhaddad
  */
 public class ReservationCrud {
-    
-         Connection cnx;
+
+    Connection cnx;
     Statement st;
 
     public ReservationCrud() {
         cnx = DataBase.getInstance().getCnx();
     }
-    
-     public void ResResAdd(int idAn, int idP, int nbPlARes, int montant){
-         try {
+
+    public void ResResAdd(int idAn, int idP, int nbPlARes, int montant) {
+        try {
             String requete2 = "INSERT INTO `reservation`(`idReservation`, `idAnnonce`, `idUser`, `dateReservation`, `nbPlace`, `montant` , `etatReservation`) "
                     + "VALUES (?,?,?,now(),?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
@@ -48,11 +49,11 @@ public class ReservationCrud {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-     }
-     
-     public ArrayList<Reservation> consMesResPa(int idP) {
+    }
 
-        ArrayList<Reservation> result = new ArrayList<>();
+    public ArrayList<Reservation> consMesResPa(int idP) {
+
+        ArrayList<Reservation> result = new ArrayList<Reservation>();
         try {
             String requete3 = "SELECT * "
                     + "FROM annonce \n"
@@ -80,7 +81,7 @@ public class ReservationCrud {
                 //Soit par label soit par indice 
                 p.setIdUser(idP);
                 ;
-               // System.out.println(p);
+                // System.out.println(p);
                 result.add(p);
 
             }
@@ -91,11 +92,11 @@ public class ReservationCrud {
 
         return result;
     }
-     
-     public void AnnulerResPas(int idAn, int nbPl) {
+
+    public void AnnulerResPas(int idAn, int idRs, int nbPl) {
 
         try {
-            String requete1 = "UPDATE `reservation` SET `etatReservation`='annulé' WHERE `idAnnonce` = " + idAn + " ";
+            String requete1 = "UPDATE `reservation` SET `etatReservation`='annulé' WHERE `idReservation` = " + idRs + " ";
             PreparedStatement pst;
             pst = cnx.prepareStatement(requete1);
             pst.executeUpdate();
@@ -117,5 +118,81 @@ public class ReservationCrud {
 
     }
 
+    public ArrayList<Reservation> listResChaufAn(int idAn) { // lsit des reservation a l'annoce du chauffeur
+
+        ArrayList<Reservation> result = new ArrayList<Reservation>();
+        try {
+            String requete3 = "SELECT * FROM reservation "
+                    + "INNER JOIN user ON user.idUser = reservation.idUser "
+                    + "INNER JOIN annonce ON annonce.idAnnonce = reservation.idAnnonce "
+                    + "WHERE reservation.idAnnonce = " + idAn + " "
+                    + "AND annonce.dateAnnonce > now()  ";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+
+            while (rs.next()) {
+                User a = new User();
+                Reservation p = new Reservation();
+                p.setIdReservation(rs.getInt("idReservation"));
+                p.setIdAnnonce(rs.getInt("idAnnonce"));
+                p.setIdUser(rs.getInt("idUser"));
+                p.setDateReservation(rs.getString("dateReservation"));
+                p.setEtatReservation(rs.getString("etatReservation"));
+                p.setLieuDepart(rs.getString("lieuDepart"));
+                p.setLieuArrivee(rs.getString("lieuArrivee"));
+                p.setDateAnnonce(rs.getString("dateAnnonce"));
+                p.setHeureAnnonce(rs.getString("heureAnnonce"));
+                p.setNbPlace(rs.getInt("nbPlace"));
+                p.setMontant(rs.getInt("montant"));
+                a.setNom(rs.getString("nom"));
+                p.setUser(a);
+                result.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        return result;
+    }
+
+    public ArrayList<Reservation> resUserDetail(int idU) {
+
+        ArrayList<Reservation> result = new ArrayList<Reservation>();
+       
+        try {
+            String requete3 = "SELECT * FROM reservation "
+                    + "INNER JOIN USER ON user.idUser = reservation.idUser"
+                    + " WHERE idReservation  = " + idU + " ";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+            User u = new User();
+            Reservation res = new Reservation();
+            while (rs.next()) {
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setNumTel(rs.getInt("numTel"));
+                u.setMail(rs.getString("mail"));
+                res.setUser(u);
+                res.setDateReservation(rs.getString("dateReservation"));
+                res.setNbPlace(rs.getInt("nbPlace"));
+                res.setEtatReservation(rs.getString("etatReservation"));
+                result.add(res);
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        return result;
+
+    }
     
+public int test(int x){
+    return x*x;
+}
 }

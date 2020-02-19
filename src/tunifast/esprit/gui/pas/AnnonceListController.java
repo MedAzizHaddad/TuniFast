@@ -194,21 +194,7 @@ public class AnnonceListController implements Initializable {
 
     @FXML
     private void afficher(ActionEvent event) {
-//        UserSession us = new UserSession().getInstance();
-//        TuniFastUtil.parSession(1);
-//        ArrayList<Annonce> res = new ArrayList<Annonce>();
-//        AnnonceCrud an = new AnnonceCrud();
-//        Annonce a = new Annonce();
-//        Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
-//        res = an.ReadAnnonce(selectedAn.getIdAnnonce());
-//        res.get(0).getHeureAnnonce();
-//        System.out.println(res.get(0).getHeureAnnonce());
-//        a = res.get(0);
-//        TuniFastUtil.loadWindow(getClass().getResource("AnnonceRead.fxml"), "555", null);
-//        showCustomerDialog(a);
-
-//***********************************************************
-        UserSession us = new UserSession().getInstance();
+     UserSession us = new UserSession().getInstance();
         ReservationCrud res = new ReservationCrud();
         Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
         //  System.out.println(selectedAn);
@@ -216,7 +202,7 @@ public class AnnonceListController implements Initializable {
             AlertMaker.showSimpleAlert("aucune annonce selectionné !! ", "veuillez selecionner une annonce");
         } else {
             TuniFastUtil.parSession(selectedAn.getIdAnnonce());
-            TuniFastUtil.loadWindow(getClass().getResource("AnnonceRead.fxml"), "555", null);
+            TuniFastUtil.loadWindow(getClass().getResource("AnnonceRead.fxml"), "list des annonces", null);
         }
 
     }

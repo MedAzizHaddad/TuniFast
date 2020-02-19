@@ -49,6 +49,7 @@ public class AnnonceCrud {
                 a.setHeureAnnonce(rs.getString("heureAnnonce"));
                 a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
                 a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
                res.add(a);
                
                }
@@ -76,6 +77,7 @@ public class AnnonceCrud {
                 a.setHeureAnnonce(rs.getString("heureAnnonce"));
                 a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
                 a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
                res.add(a);
                
                }
@@ -102,14 +104,14 @@ public class AnnonceCrud {
         }
     }
      
-     public ArrayList<Annonce> ReadAnnonce(int id){
+     public ArrayList<Annonce> ReadAnnonce(int idan){
          
                   ArrayList<Annonce> res = new ArrayList<Annonce>();
 
                           
            try {
                DataBase db = new DataBase();
-               String qu = "SELECT * FROM annonce INNER JOIN user ON annonce.idUser = user.idUser WHERE annonce.idAnnonce ="+id+"";
+               String qu = "SELECT * FROM annonce INNER JOIN user ON annonce.idUser = user.idUser WHERE annonce.idAnnonce ="+idan+"";
                ResultSet rs = db.execQuery(qu);
                while (rs.next())
                { Annonce a = new Annonce();
@@ -122,6 +124,7 @@ public class AnnonceCrud {
                 a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
                 a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
                 a.setNomUser(rs.getString("nom"));
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
                res.add(a);
                
                }
@@ -132,6 +135,35 @@ public class AnnonceCrud {
            return res;
                } 
          
+           public ArrayList<Annonce> ReadAnnonceChauf(int iduser){
          
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+
+                          
+           try {
+               DataBase db = new DataBase();
+               String qu = "SELECT * from annonce WHERE idUser = "+iduser+" AND dateAnnonce > now()";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           return res;
+               } 
+    
      
 }

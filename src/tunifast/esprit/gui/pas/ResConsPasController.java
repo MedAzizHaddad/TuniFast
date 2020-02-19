@@ -185,9 +185,8 @@ public class ResConsPasController implements Initializable {
             AlertMaker.showMaterialDialog0(root, Arrays.asList(ok, cancel), "Are u sure !", "cinformation text");
             ok.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event1) -> {
                 ReservationCrud res = new ReservationCrud();
-                res.AnnulerResPas(selectedAn.getIdAnnonce(), selectedAn.getNbPlace());
-                System.out.println("ha" + selectedAn.getIdAnnonce() + "h2" + selectedAn.getNbPlace());
-AlertMaker.showSimpleAlert("done", "annul");
+                res.AnnulerResPas(selectedAn.getIdAnnonce(),selectedAn.getIdReservation(), selectedAn.getNbPlace());
+                AlertMaker.showSimpleAlert("done", "annul");
 
             });
             cancel.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event1) -> {

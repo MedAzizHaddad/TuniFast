@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.chauf.AnnonceReadChaufController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <VBox prefHeight="344.0" prefWidth="199.0">
+                                 <children>
+                                    <AnchorPane prefHeight="77.0" prefWidth="175.0">
+                                       <VBox.margin>
+                                          <Insets left="72.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/annoncericon1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                    <JFXTextField fx:id="txtDatePostAn" stylesheets="@../../../../resources/design.css">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtDepAn" layoutX="10.0" layoutY="50.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtArAn" layoutX="10.0" layoutY="87.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtDateAn" layoutX="10.0" layoutY="124.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtHrAn" layoutX="10.0" layoutY="161.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtPlDisp" layoutX="10.0" layoutY="198.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtPlRes" layoutX="10.0" layoutY="235.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </JFXTextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/listicon1.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="72.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <JFXTextField prefHeight="57.0" prefWidth="200.0" text="Selectioner un passager : " />
+                              <JFXListView fx:id="listDetAnn" prefHeight="296.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="344.0" prefWidth="199.0">
+                           <children>
+                              <AnchorPane prefHeight="77.0" prefWidth="175.0">
+                                 <VBox.margin>
+                                    <Insets left="72.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/detailsicon1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <JFXTextField fx:id="txtNom" stylesheets="@../../../../resources/design.css">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtPrenom" layoutX="10.0" layoutY="50.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtTel" layoutX="10.0" layoutY="87.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtEmail" layoutX="10.0" layoutY="124.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtDate" layoutX="10.0" layoutY="161.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtPlace" layoutX="10.0" layoutY="198.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtEtat" layoutX="10.0" layoutY="235.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </JFXTextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+         </center>
+         <top>
+            <StackPane prefHeight="57.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="32.0" prefWidth="249.0" text="Details de votre annonce " textFill="#ffff8d">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>

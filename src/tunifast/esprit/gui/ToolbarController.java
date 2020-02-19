@@ -71,7 +71,18 @@ public class ToolbarController implements Initializable {
 
     @FXML
     private void ResCons(ActionEvent event) {
+        if (! btnRole.isSelected()){
           TuniFastUtil.loadWindow(getClass().getResource("pas/ResConsPas.fxml"), "Consulter reservation des passager" , null);
+    } else {
+                TuniFastUtil.loadWindow(getClass().getResource("chauf/ResConsChauf.fxml"), "Consulter reservation dans vos annoces" , null);
+      
+        }
+        
+    }
+
+    @FXML
+    private void annoncer(ActionEvent event) {
+        System.out.println( btnRole.isSelected());
     }
 
  

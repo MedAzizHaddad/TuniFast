@@ -14,7 +14,7 @@
             <Font size="18.0" />
          </font>
       </JFXToggleButton>
-      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="268.0" prefHeight="150.0" prefWidth="267.0" text="Annoncer">
+      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="268.0" onAction="#annoncer" prefHeight="150.0" prefWidth="267.0" text="Annoncer">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>

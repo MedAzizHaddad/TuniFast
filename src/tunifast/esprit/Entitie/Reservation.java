@@ -11,13 +11,15 @@ import java.util.Objects;
  *
  * @author mohamedazizhaddad
  */
-public class Reservation {int idReservation;
+public class Reservation {
+    User user ;
+    int idReservation;
     int idAnnonce;
     int idUser;
     String dateReservation;
     int nbPlace;
     int montant;
-    String etatReservation ;
+    String etatReservation;
     String lieuDepart;
     String lieuArrivee;
     String dateAnnonce;
@@ -52,6 +54,10 @@ public class Reservation {int idReservation;
         return idUser;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public String getDateReservation() {
         return dateReservation;
     }
@@ -82,6 +88,10 @@ public class Reservation {int idReservation;
 
     public String getHeureAnnonce() {
         return heureAnnonce;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setIdReservation(int idReservation) {
@@ -197,9 +207,5 @@ public class Reservation {int idReservation;
     public String toString() {
         return "Reservation{" + "idReservation=" + idReservation + ", idAnnonce=" + idAnnonce + ", idUser=" + idUser + ", dateReservation=" + dateReservation + ", nbPlace=" + nbPlace + ", montant=" + montant + ", etatReservation=" + etatReservation + ", lieuDepart=" + lieuDepart + ", lieuArrivee=" + lieuArrivee + ", dateAnnonce=" + dateAnnonce + ", heureAnnonce=" + heureAnnonce + '}';
     }
-
-
-
-    
 
 }

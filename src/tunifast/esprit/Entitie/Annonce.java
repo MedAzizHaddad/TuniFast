@@ -18,6 +18,9 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Annonce {
 
+    private User user ;
+
+   
     private int idAnnonce;
     private int idUser;
     private String lieuDepart;
@@ -26,8 +29,24 @@ public class Annonce {
     private String heureAnnonce;
     private int nbrPlaceDispo;
     private int nbPlaceReser;
-    ////////////
+    
+    private String dateAnnPost;
+    //////////// 
     private String nomUser ;
+
+    public Annonce(int idAnnonce, int idUser, String lieuDepart, String lieuArrivee, String dateAnnonce, String heureAnnonce, int nbrPlaceDispo, int nbPlaceReser, String dateAnnPost, String nomUser) {
+        this.idAnnonce = idAnnonce;
+        this.idUser = idUser;
+        this.lieuDepart = lieuDepart;
+        this.lieuArrivee = lieuArrivee;
+        this.dateAnnonce = dateAnnonce;
+        this.heureAnnonce = heureAnnonce;
+        this.nbrPlaceDispo = nbrPlaceDispo;
+        this.nbPlaceReser = nbPlaceReser;
+        this.dateAnnPost = dateAnnPost;
+        this.nomUser = nomUser;
+    }
+    
 
     public Annonce(int idAnnonce, int idUser, String lieuDepart, String lieuArrivee, String dateAnnonce, String heureAnnonce, int nbrPlaceDispo, int nbPlaceReser, String nomUser) {
         this.idAnnonce = idAnnonce;
@@ -55,8 +74,17 @@ public class Annonce {
         this.nbPlaceReser = nbPlaceReser;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    
     public int getIdAnnonce() {
         return idAnnonce;
+    }
+
+    public String getDateAnnPost() {
+        return dateAnnPost;
     }
 
     public int getIdUser() {
@@ -93,6 +121,14 @@ public class Annonce {
 
     public int getNbrPlaceDispo() {
         return nbrPlaceDispo;
+    }
+
+    public void setDateAnnPost(String dateAnnPost) {
+        this.dateAnnPost = dateAnnPost;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getNbPlaceReser() {
