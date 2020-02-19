@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Utils.TuniFastUtil;
 import tunifast.esprit.gui.alert.AlertMaker;
 
@@ -54,12 +55,23 @@ public class ToolbarController implements Initializable {
 
     @FXML
     private void checkRole(ActionEvent event) {
-        AlertMaker.showErrorMessage("you are not a driver!!", null);
+        UserSession us = UserSession.getInstance() ;
+        if (us.getRole().equals("passager")){
+            AlertMaker.showErrorMessage("you are not a driver!!", null);
         btnRole.setSelected(false);
+        }
+        
         
 //        JFXButton btn = new JFXButton("Alright!");
 //        AlertMaker.showMaterialDialog(null, null, Arrays.asList(btn), "Invalid Input", null);
        // btnRole.setSelected(false);
+    }
+
+
+
+    @FXML
+    private void ResCons(ActionEvent event) {
+          TuniFastUtil.loadWindow(getClass().getResource("pas/ResConsPas.fxml"), "Consulter reservation des passager" , null);
     }
 
  

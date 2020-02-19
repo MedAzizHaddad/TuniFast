@@ -7,8 +7,13 @@ package tunifast.esprit.Service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import tunifast.esprit.Entitie.Reservation;
 import tunifast.esprit.Utils.DataBase;
 
 /**
@@ -42,5 +47,47 @@ public class ReservationCrud {
             System.out.println(ex.getMessage());
         }
      }
+     
+     public ArrayList<Reservation> consMesResPa(int idP) {
+
+        ArrayList<Reservation> result = new ArrayList<>();
+        try {
+            String requete3 = "SELECT * "
+                    + "FROM annonce \n"
+                    + "INNER JOIN reservation\n"
+                    + "ON annonce.idAnnonce = reservation.idAnnonce\n"
+                    + "WHERE reservation.idUser =" + idP + " AND annonce.dateAnnonce > now()  ";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+
+            while (rs.next()) {
+                Reservation p = new Reservation();
+                p.setIdReservation(rs.getInt("idReservation"));
+                p.setIdAnnonce(rs.getInt("idAnnonce"));
+                p.setIdUser(rs.getInt("idUser"));
+                p.setDateReservation(rs.getString("dateReservation"));
+                p.setEtatReservation(rs.getString("etatReservation"));
+                p.setLieuDepart(rs.getString("lieuDepart"));
+                p.setLieuArrivee(rs.getString("lieuArrivee"));
+                p.setDateAnnonce(rs.getString("dateAnnonce"));
+                p.setHeureAnnonce(rs.getString("heureAnnonce"));
+                p.setNbPlace(rs.getInt("nbPlace"));
+                p.setMontant(rs.getInt("montant"));
+
+                //Soit par label soit par indice 
+                p.setIdUser(idP);
+                ;
+               // System.out.println(p);
+                result.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        return result;
+    }
     
 }

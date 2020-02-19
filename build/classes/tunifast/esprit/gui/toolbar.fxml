@@ -50,7 +50,7 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="218.0" prefHeight="150.0" prefWidth="267.0" text="Mes reservations">
+      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="218.0" onAction="#ResCons" prefHeight="150.0" prefWidth="267.0" text="Mes reservations">
          <font>
             <Font size="21.0" />
          </font>
