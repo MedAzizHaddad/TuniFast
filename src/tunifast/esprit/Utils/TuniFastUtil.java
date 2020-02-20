@@ -71,17 +71,6 @@ public class TuniFastUtil {
 
 
    
-    public static String formatDateTimeString(Date date) {
-        return DATE_TIME_FORMAT.format(date);
-    }
-
-    public static String formatDateTimeString(Long time) {
-        return DATE_TIME_FORMAT.format(new Date(time));
-    }
-
-    public static String getDateString(Date date) {
-        return DATE_FORMAT.format(date);
-    }
 
   public static void parSession(int par){
       UserSession us = new UserSession().getInstance();

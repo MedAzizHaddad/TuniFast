@@ -118,19 +118,19 @@ public class ReservationCrud {
 
     }
 
-    public ArrayList<Reservation> listResChaufAn(int idAn) { // lsit des reservation a l'annoce du chauffeur
 
+    public ArrayList<Reservation> listResChaufAn(int idAn) { 
         ArrayList<Reservation> result = new ArrayList<Reservation>();
         try {
-            String requete3 = "SELECT * FROM reservation "
+ 
+              DataBase db = new DataBase();
+               String qu =  "SELECT * FROM reservation "
                     + "INNER JOIN user ON user.idUser = reservation.idUser "
                     + "INNER JOIN annonce ON annonce.idAnnonce = reservation.idAnnonce "
                     + "WHERE reservation.idAnnonce = " + idAn + " "
                     + "AND annonce.dateAnnonce > now()  ";
-
-            PreparedStatement pst2 = cnx.prepareStatement(requete3);
-            ResultSet rs = pst2.executeQuery();
-
+               ResultSet rs = db.execQuery(qu);
+               
             while (rs.next()) {
                 User a = new User();
                 Reservation p = new Reservation();
