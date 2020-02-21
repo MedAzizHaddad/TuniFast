@@ -8,6 +8,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -40,18 +42,25 @@
          <center>
             <AnchorPane prefHeight="506.0" prefWidth="790.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXTabPane>
+                  <JFXTabPane fx:id="tabPaneAc">
                      <tabs>
-                        <Tab text="Dashboard passager">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                          </content>
+                        <Tab fx:id="tabPass" text="Dashboard passager">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                           </content>
+                           <graphic>
+                              <AnchorPane prefHeight="27.0" prefWidth="36.0">
+                                 <children>
+                                    <ImageView fx:id="img" fitHeight="27.0" fitWidth="26.0" layoutX="18.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" style="visibility: true;">
+                                       <image>
+                                          <Image url="@icons/detailsicon1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </graphic>
                         </Tab>
-                        <Tab text="Dashboard chauffeur">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                          </content>
-                        </Tab>
+                        <Tab text="Dashboard chauffeur" />
                      </tabs>
                   </JFXTabPane>
                       <JFXHamburger fx:id="hamburger" styleClass="jfx-hamburger-icon" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">

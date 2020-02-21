@@ -26,7 +26,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) { //pas/annonceList.fxml
         try {
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root , 1000 , 700);
 
             primaryStage.setTitle("Hello World!");
             primaryStage.setScene(scene);
