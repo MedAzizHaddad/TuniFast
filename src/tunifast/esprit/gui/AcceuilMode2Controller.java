@@ -57,7 +57,7 @@ public class AcceuilMode2Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //  tabPaneAc.setStyle("-fx-primary : #1976D2");
+        
         // TODO
     }
 
