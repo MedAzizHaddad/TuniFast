@@ -1,0 +1,80 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tunifast.esprit.Service;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import tunifast.esprit.Entitie.Reservation;
+import tunifast.esprit.Entitie.messages;
+import tunifast.esprit.Utils.DataBase;
+
+/**
+ *
+ * @author mohamedazizhaddad
+ */
+public class MessageCrud {
+
+    Connection cnx;
+    Statement st;
+
+    public MessageCrud() {
+        cnx = DataBase.getInstance().getCnx();
+    }
+
+    public ArrayList<messages> userExp(int idU) {
+
+        ArrayList<messages> result = new ArrayList<messages>();
+        try {
+            String requete3 = "SELECT DISTINCT exp, recep FROM messages WHERE exp= "+idU+" or recep = "+idU+" ORDER BY idMessage DESC";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+
+            while (rs.next()) {
+                messages m = new messages();
+                messages m1 = new messages();
+                m.setExp(rs.getInt("exp"));
+                m.setRecep(rs.getInt("recep"));
+                m1.setExp(rs.getInt("recep"));
+                m1.setRecep(rs.getInt("exp"));
+                if (!result.contains(m) && !result.contains(m1)) {
+                    if (m1.getExp() == 1) {
+                        result.add(m);
+                    } else {
+                        result.add(m1);
+                    }
+                }
+
+            }
+        } catch (SQLException ex) {
+
+        }
+
+//         try {
+//            String requete3 = "SELECT DISTINCT exp, recep FROM messages WHERE exp<>1 AND recep = 1";
+//
+//            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+//            ResultSet rs = pst2.executeQuery();
+//
+//            while (rs.next()) {
+//                messages m = new messages();
+//                m.setExp(rs.getInt("recep"));
+//                m.setRecep(rs.getInt("exp"));
+//                if(! result.contains(m)){
+//                      result.add(m);
+//                }
+//              
+//            }
+//        } catch (SQLException ex) {
+//
+//        }
+        return result;
+    }
+}
