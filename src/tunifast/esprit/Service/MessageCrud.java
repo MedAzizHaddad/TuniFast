@@ -28,11 +28,11 @@ public class MessageCrud {
         cnx = DataBase.getInstance().getCnx();
     }
 
-    public ArrayList<messages> userExp(int idU) {
+    public ArrayList<messages> getContacts(int idU) {
 
         ArrayList<messages> result = new ArrayList<messages>();
         try {
-            String requete3 = "SELECT DISTINCT exp, recep FROM messages WHERE exp= "+idU+" or recep = "+idU+" ORDER BY idMessage DESC";
+            String requete3 = "SELECT  exp, recep FROM messages WHERE exp= "+idU+" or recep = "+idU+" ORDER BY idMessage DESC";
 
             PreparedStatement pst2 = cnx.prepareStatement(requete3);
             ResultSet rs = pst2.executeQuery();
@@ -57,24 +57,40 @@ public class MessageCrud {
 
         }
 
-//         try {
-//            String requete3 = "SELECT DISTINCT exp, recep FROM messages WHERE exp<>1 AND recep = 1";
-//
-//            PreparedStatement pst2 = cnx.prepareStatement(requete3);
-//            ResultSet rs = pst2.executeQuery();
-//
-//            while (rs.next()) {
-//                messages m = new messages();
-//                m.setExp(rs.getInt("recep"));
-//                m.setRecep(rs.getInt("exp"));
-//                if(! result.contains(m)){
-//                      result.add(m);
-//                }
-//              
-//            }
-//        } catch (SQLException ex) {
-//
-//        }
         return result;
     }
+    
+    
+    public ArrayList<messages> getMessages(int u1 , int u2) {
+
+        ArrayList<messages> result = new ArrayList<messages>();
+        try {
+            String requete3 = "SELECT * FROM messages WHERE (recep = 1 and exp =2 ) "
+                            + "or (recep =2 and exp = 1) ORDER BY idMessage DESC";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+
+            while (rs.next()) {
+                messages m = new messages();
+                messages m1 = new messages();
+                System.out.println("froom cruud");
+                System.out.println(rs.getInt("exp"));
+                System.out.println(rs.getInt("recep"));
+                System.out.println(rs.getString("content"));
+                System.out.println("-------------");
+                m.setExp(rs.getInt("exp"));
+                m.setRecep(rs.getInt("recep"));
+               m.setContent(rs.getString("content"));
+               result.add(m);
+
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        return result;
+    }
+    
+    
 }

@@ -21,8 +21,8 @@ public class NewClass {
         System.out.println("jo");
          ArrayList<messages> result = new ArrayList<messages>();
         MessageCrud m = new MessageCrud();
-      result =  m.userExp(1);
-      result.forEach((n) -> System.out.println(n.getExp())); 
+      result =  m.getMessages(1,1);
+      result.forEach((n) -> System.out.println(n.getContent())); 
       
     }
     

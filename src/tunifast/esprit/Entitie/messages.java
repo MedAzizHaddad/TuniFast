@@ -13,6 +13,7 @@ public class messages {
     private int idMessage;
     private int exp ;
     private int recep ;
+    private String content;
 
     public messages(int idMessage, int exp, int recep) {
         this.idMessage = idMessage;
@@ -20,11 +21,22 @@ public class messages {
         this.recep = recep;
     }
 
+    public messages(int idMessage, int exp, int recep, String content) {
+        this.idMessage = idMessage;
+        this.exp = exp;
+        this.recep = recep;
+        this.content = content;
+    }
+
     public messages() {
     }
 
     public int getIdMessage() {
         return idMessage;
+    }
+
+    public String getContent() {
+        return content;
     }
 
     public int getExp() {
@@ -45,6 +57,10 @@ public class messages {
 
     public void setRecep(int recep) {
         this.recep = recep;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
