@@ -21,8 +21,21 @@ public class User {
     private String sexe;
     private String role;
     private String password;
+    private String username; 
 
     public User() {
+    }
+
+    public User(int idUser, String nom, String prenom, String mail, int numTel, String sexe, String role, String password, String username) {
+        this.idUser = idUser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.numTel = numTel;
+        this.sexe = sexe;
+        this.role = role;
+        this.password = password;
+        this.username = username;
     }
 
     public User(int idUser, String nom, String prenom, String mail, int numTel, String sexe, String role, String password) {
@@ -34,6 +47,10 @@ public class User {
         this.sexe = sexe;
         this.role = role;
         this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public int getIdUser() {
@@ -74,6 +91,10 @@ public class User {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPrenom(String prenom) {

@@ -34,6 +34,7 @@ public class Annonce {
     //////////// 
     private String nomUser ;
 
+    
     public Annonce(int idAnnonce, int idUser, String lieuDepart, String lieuArrivee, String dateAnnonce, String heureAnnonce, int nbrPlaceDispo, int nbPlaceReser, String dateAnnPost, String nomUser) {
         this.idAnnonce = idAnnonce;
         this.idUser = idUser;

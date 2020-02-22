@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tunifast.esprit.Entitie.Annonce;
+import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Utils.DataBase;
 
 /**
@@ -165,5 +166,73 @@ public class AnnonceCrud {
            return res;
                } 
     
-     
+        
+           
+           public ArrayList<Annonce> getLastAnnoncePas(){
+         
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+
+                          
+           try {
+               DataBase db = new DataBase();
+               String qu = "select *from annonce INNER JOIN user ON user.idUser = annonce.idUser WHERE type = 'passager' ORDER BY idAnnonce DESC LIMIT 1 ";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+                User u = new User();
+               u.setUsername(rs.getString("username")); 
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+   a.setUser(u);
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           return res;
+               } 
+   
+                public ArrayList<Annonce> getLastAnnonceChauf(){
+         
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+
+                          
+           try {
+               DataBase db = new DataBase();
+               String qu = "select *from annonce INNER JOIN user ON user.idUser = annonce.idUser WHERE type = 'chauffeur' ORDER BY idAnnonce DESC LIMIT 1";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               User u = new User();
+               u.setUsername(rs.getString("username"));
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setUser(u);
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           return res;
+               } 
+   
+           
 }

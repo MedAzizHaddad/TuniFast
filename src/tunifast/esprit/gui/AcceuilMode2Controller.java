@@ -57,8 +57,7 @@ public class AcceuilMode2Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        // TODO
+      
     }
 
     @FXML
@@ -72,7 +71,7 @@ public class AcceuilMode2Controller implements Initializable {
     @FXML
     private void ResCons(ActionEvent event) {
         System.out.println("hii");
-     tunifast.esprit.Utils.TuniFastUtil.loadWindowMode2(getClass().getResource("pas/annonceList.fxml"), "reserver" , tabPaneAc);
+     tunifast.esprit.Utils.TuniFastUtil.loadWindowMode2(getClass().getResource("pas/ResConsPas.fxml"), "reserver" , tabPaneAc);
 
     }
 

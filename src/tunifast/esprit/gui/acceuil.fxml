@@ -12,14 +12,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="838.0" stylesheets="@../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.AcceuilController">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.AcceuilController">
    <children>
            <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
       <BorderPane fx:id="rootAnchorPane" prefHeight="200.0" prefWidth="200.0">
          <top>
-            <MenuBar BorderPane.alignment="CENTER">
+            <MenuBar prefWidth="735.0" BorderPane.alignment="CENTER">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -42,12 +46,9 @@
          <center>
             <AnchorPane prefHeight="506.0" prefWidth="790.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXTabPane fx:id="tabPaneAc">
+                  <JFXTabPane fx:id="tabPaneAc" prefHeight="491.0" prefWidth="800.0">
                      <tabs>
                         <Tab fx:id="tabPass" text="Dashboard passager">
-                           <content>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                           </content>
                            <graphic>
                               <AnchorPane prefHeight="27.0" prefWidth="36.0">
                                  <children>
@@ -59,11 +60,40 @@
                                  </children>
                               </AnchorPane>
                            </graphic>
+                           <content>
+                              <StackPane prefHeight="150.0" prefWidth="767.0" />
+                           </content>
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="452.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox prefHeight="452.0" prefWidth="477.0" style="-fx-background-color: #cc33ff;" />
+                                          <VBox prefHeight="200.0" prefWidth="500.0" />
+                                       </children>
+                                    </HBox>
+                                 </children></AnchorPane>
+                           </content>
                         </Tab>
-                        <Tab text="Dashboard chauffeur" />
+                        <Tab fx:id="tabPass1" text="Dashboard passager2">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="520.0" />
+                           </content>
+                           <graphic>
+                              <AnchorPane prefHeight="27.0" prefWidth="36.0">
+                                 <children>
+                                    <ImageView fx:id="img1" fitHeight="27.0" fitWidth="26.0" layoutX="18.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" style="visibility: true;">
+                                       <image>
+                                          <Image url="@icons/detailsicon1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </graphic>
+                        </Tab>
                      </tabs>
                   </JFXTabPane>
-                      <JFXHamburger fx:id="hamburger" styleClass="jfx-hamburger-icon" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+                      <JFXHamburger fx:id="hamburger" layoutX="749.0" layoutY="14.0" styleClass="jfx-hamburger-icon" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="14.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -74,6 +104,169 @@
                </BorderPane.margin>
             </AnchorPane>
          </center>
+         <bottom>
+            <HBox prefHeight="59.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane prefHeight="74.0" prefWidth="600.0">
+                     <children>
+                        <VBox prefHeight="68.0" prefWidth="300.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCD1D1;">
+                                 <children>
+                                    <Text fx:id="txt1" strokeType="OUTSIDE" strokeWidth="0.0" text="loading" wrappingWidth="117.873046875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font></Text>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="is " wrappingWidth="32.998046875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font></Text>
+                                    <Text fx:id="txt2" layoutX="197.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="loading">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCD1D1;">
+                                 <children>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="from:" wrappingWidth="51.294921875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="110.13671875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="to:" wrappingWidth="29.09765625">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt4" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #F8F9B1;" text="Text" wrappingWidth="73.03125">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCD1D1;">
+                                 <children>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="date:" wrappingWidth="50.513671875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt5" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="112.13671875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="time :" wrappingWidth="47.87109375">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt6" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children></HBox>
+                           </children>
+                        </VBox>
+                     </children></StackPane>
+                  <StackPane prefHeight="75.0" prefWidth="105.0">
+                     <children>
+                        <ImageView fitHeight="242.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resources/logo0.PNG" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="10.0" layoutY="10.0" prefHeight="74.0" prefWidth="600.0">
+                     <children>
+                        <VBox prefHeight="68.0" prefWidth="300.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCD1D1;">
+                                 <children>
+                                    <Text fx:id="txt11" strokeType="OUTSIDE" strokeWidth="0.0" text="loading" wrappingWidth="117.873046875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="is " wrappingWidth="32.998046875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt22" layoutX="197.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="loading">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCD1D1;">
+                                 <children>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="from:" wrappingWidth="51.294921875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt33" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="110.13671875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="to:" wrappingWidth="29.09765625">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt44" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #F8F9B1;" text="Text" wrappingWidth="73.03125">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCD1D1;">
+                                 <children>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="date:" wrappingWidth="50.513671875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt55" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="112.13671875">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#934adc" strokeType="OUTSIDE" strokeWidth="0.0" text="time :" wrappingWidth="47.87109375">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txt66" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                       <font>
+                                          <Font name="Copperplate Gothic Light" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></StackPane>
+               </children>
+            </HBox>
+         </bottom>
      
       </BorderPane>
    </children>

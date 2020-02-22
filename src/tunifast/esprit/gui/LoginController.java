@@ -31,7 +31,7 @@ import tunifast.esprit.Service.ProfileCrud;
  * @author mohamedazizhaddad
  */
 public class LoginController implements Initializable {
-
+    
     @FXML
     private JFXTextField tel;
     @FXML
@@ -67,16 +67,19 @@ public class LoginController implements Initializable {
             int id =UserTest.loginTest(getTel(), getPw()).get(0).getIdUser() ;
             String role = UserTest.loginTest(getTel(), getPw()).get(0).getRole() ;
             UserSession us = UserSession.getInstance(id , role );
+               closeStage();
+                loadMain1(); 
+            
 
-           p = pc.profileCheck(id);
-            System.out.println(p.get(0).getMode());
-            if (p.get(0).getMode().equals("free")) {
-                 closeStage();
-                loadMain1();       
-            } else {
-                 closeStage();
-                loadMain2();
-            }
+//           p = pc.profileCheck(id);
+//            System.out.println(p.get(0).getMode());
+//            if (p.get(0).getMode().equals("free")) {
+//                 closeStage();
+//                loadMain1();       
+//            } else {
+//                 closeStage();
+//                loadMain2();
+//            }
            
             
         }
@@ -100,6 +103,7 @@ public class LoginController implements Initializable {
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("TuniFast");
             stage.setScene(new Scene(parent));
+           stage.setResizable(false);
             stage.show();
             //**.setStageIcon(stage);
         } catch (IOException ex) {
