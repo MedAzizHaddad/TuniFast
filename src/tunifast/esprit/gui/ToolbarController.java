@@ -50,40 +50,42 @@ public class ToolbarController implements Initializable {
 
     @FXML
     private void anList(ActionEvent event) {
-        TuniFastUtil.loadWindow(getClass().getResource("pas/annonceList.fxml"), "reserver" , null);
+        TuniFastUtil.loadWindow(getClass().getResource("pas/annonceList.fxml"), "reserver", null);
     }
 
     @FXML
     private void checkRole(ActionEvent event) {
-        UserSession us = UserSession.getInstance() ;
-        if (us.getRole().equals("passager")){
+        UserSession us = UserSession.getInstance();
+        if (us.getRole().equals("passager")) {
             AlertMaker.showErrorMessage("you are not a driver!!", null);
-        btnRole.setSelected(false);
+            btnRole.setSelected(false);
         }
-        
-        
+
 //        JFXButton btn = new JFXButton("Alright!");
 //        AlertMaker.showMaterialDialog(null, null, Arrays.asList(btn), "Invalid Input", null);
-       // btnRole.setSelected(false);
+        // btnRole.setSelected(false);
     }
-
-
 
     @FXML
     private void ResCons(ActionEvent event) {
-        if (! btnRole.isSelected()){
-          TuniFastUtil.loadWindow(getClass().getResource("pas/ResConsPas.fxml"), "Consulter reservation des passager" , null);
-    } else {
-                TuniFastUtil.loadWindow(getClass().getResource("chauf/ResConsChauf.fxml"), "Consulter reservation dans vos annoces" , null);
-      
+        if (!btnRole.isSelected()) {
+            TuniFastUtil.loadWindow(getClass().getResource("pas/ResConsPas.fxml"), "Consulter reservation des passager", null);
+        } else {
+            TuniFastUtil.loadWindow(getClass().getResource("chauf/ResConsChauf.fxml"), "Consulter reservation dans vos annoces", null);
+
         }
-        
+
     }
 
     @FXML
     private void annoncer(ActionEvent event) {
-        System.out.println( btnRole.isSelected());
+        System.out.println(btnRole.isSelected());
     }
 
- 
+    @FXML
+    private void profile(ActionEvent event) {
+        TuniFastUtil.loadWindow(getClass().getResource("profile/profilePers.fxml"), "Consulter reservation dans vos annoces", null);
+
+    }
+
 }

@@ -20,15 +20,49 @@ import tunifast.esprit.Utils.DataBase;
  * @author mohamedazizhaddad
  */
 public class UserCrud {
-        Connection cnx;
+
+    Connection cnx;
     Statement st;
 
     public UserCrud() {
         cnx = DataBase.getInstance().getCnx();
     }
+
+    public String getUsernameByIdu(int idU) {
+        User u = new User();
+        try {
+            String requete2 = "SELECT username FROM user WHERE idUser = " + idU + " ";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                u.setUsername(rs.getString("username"));
+                System.out.println("hiii");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return u.getUsername();
+    }
+
+    public int getIduByUsername(String username) {
+        User u = new User();
     
-    
-    
-    
-   
+        try {
+            String requete2 = "SELECT idUser FROM user WHERE username = '" + username + "' ";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                u.setIdUser(rs.getInt("idUser"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return u.getIdUser();
+    }
+
 }

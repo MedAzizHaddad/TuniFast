@@ -65,8 +65,8 @@ public class MessageCrud {
 
         ArrayList<messages> result = new ArrayList<messages>();
         try {
-            String requete3 = "SELECT * FROM messages WHERE (recep = 1 and exp =2 ) "
-                            + "or (recep =2 and exp = 1) ORDER BY idMessage DESC";
+            String requete3 = "SELECT * FROM messages WHERE (recep = "+u1+" and exp ="+u2+" ) "
+                            + "or (recep ="+u2+" and exp = "+u1+") ORDER BY idMessage DESC";
 
             PreparedStatement pst2 = cnx.prepareStatement(requete3);
             ResultSet rs = pst2.executeQuery();

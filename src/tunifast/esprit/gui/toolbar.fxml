@@ -62,7 +62,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="251.0" prefHeight="150.0" prefWidth="267.0" text="Profile">
+      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="251.0" onAction="#profile" prefHeight="150.0" prefWidth="267.0" text="Profile">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
