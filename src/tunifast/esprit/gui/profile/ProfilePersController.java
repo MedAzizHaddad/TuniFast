@@ -81,7 +81,8 @@ public class ProfilePersController implements Initializable {
   
   ObservableList<msgCell> msgType = FXCollections.observableArrayList();
         for (int j = 0; j < result1.size(); j++) {
-           msgCell msg = new msgCell(Integer.toString(result1.get(j).getExp()), true);
+             String tt = result1.get(j).getTime();
+           msgCell msg = new msgCell(Integer.toString(result1.get(j).getExp()) + "   sent at : " + tt , true);
            msgCell msg1 = new msgCell(result1.get(j).getContent(), false);
            msgType.add(0,msg1);
             msgType.add(0,msg);
@@ -106,7 +107,7 @@ public class ProfilePersController implements Initializable {
                     if (item.isDate()) {
                        
                         
-                        setText("sent by : " + item.getTxt() );
+                        setText(item.getTxt() );
                         
                          
                     } else {
@@ -131,10 +132,6 @@ public class ProfilePersController implements Initializable {
                 this.getClass().getResource("activity.css").toExternalForm()
         );
        }
-//
-//        listMessages.getItems().setAll(data);
-             
-
             }
         });
                 

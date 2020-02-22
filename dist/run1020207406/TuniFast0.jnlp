@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TuniFast0.jar" size="369767" download="eager" />
+    <jar href="TuniFast0.jar" size="369841" download="eager" />
     <jar href="lib\boxable-1.5-RC.jar" size="58530" download="eager" />
     <jar href="lib\commons-codec-1.11.jar" size="335042" download="eager" />
     <jar href="lib\commons-csv-1.4.jar" size="39978" download="eager" />

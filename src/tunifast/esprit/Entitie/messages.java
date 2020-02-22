@@ -14,11 +14,20 @@ public class messages {
     private int exp ;
     private int recep ;
     private String content;
+    private String time ;
 
     public messages(int idMessage, int exp, int recep) {
         this.idMessage = idMessage;
         this.exp = exp;
         this.recep = recep;
+    }
+
+    public messages(int idMessage, int exp, int recep, String content, String time) {
+        this.idMessage = idMessage;
+        this.exp = exp;
+        this.recep = recep;
+        this.content = content;
+        this.time = time;
     }
 
     public messages(int idMessage, int exp, int recep, String content) {
@@ -39,6 +48,10 @@ public class messages {
         return content;
     }
 
+    public String getTime() {
+        return time;
+    }
+
     public int getExp() {
         return exp;
     }
@@ -53,6 +66,10 @@ public class messages {
 
     public void setExp(int exp) {
         this.exp = exp;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public void setRecep(int recep) {

@@ -74,14 +74,10 @@ public class MessageCrud {
             while (rs.next()) {
                 messages m = new messages();
                 messages m1 = new messages();
-                System.out.println("froom cruud");
-                System.out.println(rs.getInt("exp"));
-                System.out.println(rs.getInt("recep"));
-                System.out.println(rs.getString("content"));
-                System.out.println("-------------");
                 m.setExp(rs.getInt("exp"));
                 m.setRecep(rs.getInt("recep"));
                m.setContent(rs.getString("content"));
+               m.setTime(rs.getString("time"));
                result.add(m);
 
             }
