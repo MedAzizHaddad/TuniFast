@@ -36,11 +36,11 @@
                                     </HBox>
                                     <VBox prefHeight="298.0" prefWidth="524.0">
                                        <children>
-                                          <ListView fx:id="listMessages" prefHeight="232.0" prefWidth="514.0" />
+                                          <ListView fx:id="listMessages" prefHeight="335.0" prefWidth="514.0" />
                                           <HBox prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <JFXTextField prefHeight="78.0" prefWidth="335.0" />
-                                                <JFXButton prefHeight="71.0" prefWidth="144.0" />
+                                                <JFXTextField fx:id="txtMessage" prefHeight="48.0" prefWidth="335.0" promptText="ecrire votre message ici" />
+                                                <JFXButton fx:id="btnMessage" onAction="#sendMessage" prefHeight="55.0" prefWidth="146.0" text="Envoyer" />
                                              </children>
                                           </HBox>
                                        </children>

@@ -38,7 +38,6 @@ public class UserCrud {
             while (rs.next()) {
 
                 u.setUsername(rs.getString("username"));
-                System.out.println("hiii");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

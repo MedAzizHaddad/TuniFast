@@ -5,7 +5,9 @@
  */
 package tunifast.esprit.gui.profile;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,6 +43,7 @@ import tunifast.esprit.Service.AnnonceCrud;
 import tunifast.esprit.Service.MessageCrud;
 import tunifast.esprit.Service.UserCrud;
 import tunifast.esprit.Utils.DataBase;
+import tunifast.esprit.Utils.TuniFastUtil;
 
 /**
  * FXML Controller class
@@ -53,127 +56,148 @@ public class ProfilePersController implements Initializable {
     private JFXListView<String> listContacts;
     @FXML
     private ListView<msgCell> listMessages;
+    @FXML
+    private JFXTextField txtMessage;
+    @FXML
+    private JFXButton btnMessage;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        UserSession us = UserSession.getInstance();
         UserCrud u = new UserCrud();
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-        affContacts();
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+            
 
-//            }
-//        }, 0, 4000);
+            }
+        }, 0, 4000);
+            affContacts();
         listContacts.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
                 String selectedUsername = listContacts.getSelectionModel().getSelectedItem();
                 int selectedId = u.getIduByUsername(selectedUsername);
-                affMessages(selectedId);
+               TuniFastUtil.parSession(selectedId);
+                   affMessages(selectedId);
             }
         }
-            )    ;    
-                }
+        );
+    }
+
     public void affContacts() {
-                UserCrud u = new UserCrud();
-                Connection cnx = DataBase.getInstance().getCnx();
-                Statement st;
-                ObservableList<String> data = FXCollections.observableArrayList();
-                ArrayList<messages> result = new ArrayList<messages>();
-                MessageCrud m = new MessageCrud();
-                result = m.getContacts(1);
-                for (int i = 0; i < result.size(); i++) {
-                    //  data.add(Integer.toString(result.get(i).getExp()));
-                    data.add(u.getUsernameByIdu(result.get(i).getExp()));
-                }
-                listContacts.getItems().setAll(data);
-            }
+        UserCrud u = new UserCrud();
+        Connection cnx = DataBase.getInstance().getCnx();
+        Statement st;
+        ObservableList<String> data = FXCollections.observableArrayList();
+        ArrayList<messages> result = new ArrayList<messages>();
+        MessageCrud m = new MessageCrud();
+        result = m.getContacts(1);
+        for (int i = 0; i < result.size(); i++) {
+            //  data.add(Integer.toString(result.get(i).getExp()));
+            data.add(u.getUsernameByIdu(result.get(i).getExp()));
+        }
+        listContacts.getItems().setAll(data);
+    }
 
-            public void affMessages(int i) {
-                UserSession us = UserSession.getInstance();
-                UserCrud u = new UserCrud();
-                System.out.println(us.getIdUser());
-                ObservableList<String> data = FXCollections.observableArrayList();
-                ArrayList<messages> result1 = new ArrayList<messages>();
-                MessageCrud m1 = new MessageCrud();
-                result1 = m1.getMessages(i, us.getIdUser());
-                ObservableList<msgCell> msgType = FXCollections.observableArrayList();
-                for (int j = 0; j < result1.size(); j++) {
-                    //  System.out.println(result1.get(j).getExp());
-                    String sender = u.getUsernameByIdu(result1.get(j).getExp());
-                    String tt = result1.get(j).getTime();
-                    msgCell msg = new msgCell(sender + "   sent at : " + tt, true);
-                    msgCell msg1 = new msgCell(result1.get(j).getContent(), false);
-                    msgType.add(0, msg1);
-                    msgType.add(0, msg);
-                    listMessages.setCellFactory(param -> new ListCell<msgCell>() {
-                        static final String ACTIVE_CLASS = "active";
-                        //     @Override
+    public void affMessages(int i) {
+        UserSession us = UserSession.getInstance();
+        UserCrud u = new UserCrud();
+     //   System.out.println(us.getIdUser());
+        ObservableList<String> data = FXCollections.observableArrayList();
+        ArrayList<messages> result1 = new ArrayList<messages>();
+        MessageCrud m1 = new MessageCrud();
 
-                        protected void updateItem(msgCell item, boolean empty) {
-                            super.updateItem(item, empty);
+        //------------------
+        //--------------
+        result1 = m1.getMessages(i, us.getIdUser());
+        ObservableList<msgCell> msgType = FXCollections.observableArrayList();
+        for (int j = 0; j < result1.size(); j++) {
+            //  System.out.println(result1.get(j).getExp());
+            String sender = u.getUsernameByIdu(result1.get(j).getExp());
+            String tt = result1.get(j).getTime();
+            msgCell msg = new msgCell(sender + "   sent at : " + tt, true);
+            msgCell msg1 = new msgCell(result1.get(j).getContent(), false);
+            msgType.add(0, msg1);
+            msgType.add(0, msg);
+            listMessages.setCellFactory(param -> new ListCell<msgCell>() {
+                static final String ACTIVE_CLASS = "active";
+                //     @Override
 
-                            if (empty || item == null || item.getTxt() == null) {
-                                setText(null);
-                                getStyleClass().remove(ACTIVE_CLASS);
-                            } else {
-                                if (item.isDate()) {
-                                    setText(item.getTxt());
-                                } else {
-                                    setMinWidth(0);
-                                    setMaxWidth(100);
-                                    setPrefWidth(70);
-                                    setWrapText(true);
-                                    setText(item.getTxt());
-                                }
-                                if (item.isDate() && !getStyleClass().contains(ACTIVE_CLASS)) {
-                                    getStyleClass().add(ACTIVE_CLASS);
-                                } else {
-                                    getStyleClass().remove(ACTIVE_CLASS);
-                                }
-                            }
+                protected void updateItem(msgCell item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getTxt() == null) {
+                        setText(null);
+                        getStyleClass().remove(ACTIVE_CLASS);
+                    } else {
+                        if (item.isDate()) {
+                            setText(item.getTxt());
+                        } else {
+                            setMinWidth(0);
+                            setMaxWidth(100);
+                            setPrefWidth(70);
+                            setWrapText(true);
+                            setText(item.getTxt());
                         }
-                    });
-
-                    listMessages.getItems().setAll(msgType);
-                    listMessages.getStylesheets().add(
-                            this.getClass().getResource("activity.css").toExternalForm()
-                    );
+                        if (item.isDate() && !getStyleClass().contains(ACTIVE_CLASS)) {
+                            getStyleClass().add(ACTIVE_CLASS);
+                        } else {
+                            getStyleClass().remove(ACTIVE_CLASS);
+                        }
+                    }
                 }
-            }
+            });
 
-            class msgCell {
+            listMessages.getItems().setAll(msgType);
+            listMessages.getStylesheets().add(
+                    this.getClass().getResource("activity.css").toExternalForm()
+            );
+            listMessages.scrollTo(listMessages.getItems().size());
+        }
+    }
 
-                private final StringProperty contentProperty;
-                private final BooleanProperty dateProperty;
+    @FXML
+    private void sendMessage(ActionEvent event) {
+        UserSession us = UserSession.getInstance();
+        MessageCrud ms = new MessageCrud();
+//        System.out.println(us.getParam());
+//        System.out.println(txtMessage.getText());
+     ms.sendMessage(us.getIdUser(), us.getParam(), txtMessage.getText());
+        affMessages(us.getParam());
+       txtMessage.clear();    }
 
-                public msgCell(String txt, boolean date) {
-                    this.contentProperty = new SimpleStringProperty(txt);
-                    this.dateProperty = new SimpleBooleanProperty(date);
-                }
+    class msgCell {
 
-                public String getTxt() {
-                    return contentProperty.get();
-                }
+        private final StringProperty contentProperty;
+        private final BooleanProperty dateProperty;
 
-                public StringProperty txtProperty() {
-                    return contentProperty;
-                }
+        public msgCell(String txt, boolean date) {
+            this.contentProperty = new SimpleStringProperty(txt);
+            this.dateProperty = new SimpleBooleanProperty(date);
+        }
 
-                public boolean isDate() {
-                    return dateProperty.getValue() != null
-                            ? dateProperty.getValue()
-                            : false;
-                }
+        public String getTxt() {
+            return contentProperty.get();
+        }
 
-                public BooleanProperty activeProperty() {
-                    return dateProperty;
-                }
-            }
+        public StringProperty txtProperty() {
+            return contentProperty;
+        }
+
+        public boolean isDate() {
+            return dateProperty.getValue() != null
+                    ? dateProperty.getValue()
+                    : false;
+        }
+
+        public BooleanProperty activeProperty() {
+            return dateProperty;
+        }
+    }
 }

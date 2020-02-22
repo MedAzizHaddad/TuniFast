@@ -88,5 +88,22 @@ public class MessageCrud {
         return result;
     }
     
+    public void sendMessage(int exp , int recep , String content){
+        
+           try {
+            String requete2 = "INSERT INTO `messages`( `exp`, `recep`, `content`) VALUES (?,?,?)";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+    
+            
+            pst.setInt(1, exp);
+            pst.setInt(2, recep);
+            pst.setString(3, content);
+
+            pst.executeUpdate();
+            System.out.println("message envoyé");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }
