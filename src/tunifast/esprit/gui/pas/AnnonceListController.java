@@ -8,8 +8,11 @@ package tunifast.esprit.gui.pas;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,6 +29,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -47,7 +51,9 @@ import tunifast.esprit.Service.PasServices;
 import tunifast.esprit.Service.ReservationCrud;
 import tunifast.esprit.Utils.DataBase;
 import tunifast.esprit.Utils.TuniFastUtil;
+import tunifast.esprit.gui.AcceuilController;
 import tunifast.esprit.gui.alert.AlertMaker;
+import tunifast.esprit.gui.profile.ProfilePubController;
 
 /**
  * FXML Controller class
@@ -194,7 +200,7 @@ public class AnnonceListController implements Initializable {
 
     @FXML
     private void afficher(ActionEvent event) {
-     UserSession us = new UserSession().getInstance();
+        UserSession us = new UserSession().getInstance();
         ReservationCrud res = new ReservationCrud();
         Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
         //  System.out.println(selectedAn);
@@ -207,10 +213,37 @@ public class AnnonceListController implements Initializable {
 
     }
 
-
     @FXML
-        private void refresh(ActionEvent event) {
+    private void refresh(ActionEvent event) {
         setupData();
         changeTableView(0, ROWS_PER_PAGE);
+    }
+
+    @FXML
+    private void profilHandler(ActionEvent event) {
+        Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
+        TuniFastUtil.parSession(selectedAn.getIdUser());
+        System.out.println(selectedAn.getIdUser());
+//
+
+
+        try {
+// URL LINK 
+            
+            
+            URL fxmlURL = Paths.get("C:\\Users\\mohamedazizhaddad\\Documents\\NetBeansProjects89\\TuniFast0\\src\\tunifast\\esprit\\gui\\profile\\profilePub.fxml").toUri().toURL();
+//            FXMLLoader loader = new FXMLLoader(fxmlURL));
+            Parent parent = FXMLLoader.load(fxmlURL);
+
+            Stage stage = null;
+            stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("profile");
+            stage.setScene(new Scene(parent));
+            stage.show();
+            //setStageIcon(stage);
+        } catch (IOException ex) {
+            Logger.getLogger(AcceuilController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           // TuniFastUtil.loadWindow(getClass().getResource("../profile/test"), "profil", null);
     }
 }

@@ -90,6 +90,7 @@ public class ProfilePersController implements Initializable {
             }
         }
         );
+        
     }
 
     public void affContacts() {

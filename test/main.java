@@ -17,7 +17,6 @@ import tunifast.esprit.gui.Main;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author mohamedazizhaddad
@@ -27,23 +26,20 @@ public class main {
     /**
      * @param primaryStage
      */
-    public void start(Stage primaryStage) { //pas/annonceList.fxml
-   
+    public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
-            Scene scene = new Scene(root);
+            //pas/annonceList.fxml
 
-            primaryStage.setTitle("Hello World!");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-            // to instanciate the db since the start of the app nad thread it to prevent the app from slow launchign
-           
-            new Thread(() -> {
-                DataBase.getInstance();
-            }).start();
-            //      root.requestFocus();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/../profile/test.fxml"));
+            Parent parent = loader.load();
+
+            Stage stage = null;
+            stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("klh");
+            stage.setScene(new Scene(parent));
+            stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -60,5 +56,4 @@ public class main {
 //        an.checkDataAvaliPas();
     }
 
-    
 }

@@ -116,6 +116,7 @@ public class AnnonceCrud {
                ResultSet rs = db.execQuery(qu);
                while (rs.next())
                { Annonce a = new Annonce();
+               User u = new User();
                a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
                 a.setIdUser(rs.getInt("idUser"));
                 a.setLieuDepart(rs.getString("lieuDepart"));
@@ -126,6 +127,8 @@ public class AnnonceCrud {
                 a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
                 a.setNomUser(rs.getString("nom"));
                 a.setDateAnnPost(rs.getString("dateAnnPost"));
+                u.setNom(rs.getString("nom"));
+                a.setUser(u);
                res.add(a);
                
                }

@@ -102,7 +102,7 @@ public class UserCrud {
             pst.setString(4, u.getMail());
             pst.setInt(5, u.getNumTel());
             pst.setString(6, u.getPassword());
-            pst.setString(7, "passager" );
+            pst.setString(7, "passager");
             pst.executeUpdate();
         } catch (SQLException ex) {
             if (ex.getMessage().contains("Duplicata")) {
@@ -114,30 +114,29 @@ public class UserCrud {
         }
         return true;
     }
-    
-     public ArrayList<User> getAllUsers() {
+
+    public ArrayList<User> getAllUsers() {
 
         ArrayList<User> result = new ArrayList<User>();
-       
+
         try {
             String requete3 = "SELECT * FROM user ";
 
             PreparedStatement pst2 = cnx.prepareStatement(requete3);
             ResultSet rs = pst2.executeQuery();
-        
-       
+
             while (rs.next()) {
                 User u = new User();
                 u.setNom(rs.getString("nom"));
                 u.setPrenom(rs.getString("prenom"));
                 u.setNumTel(rs.getInt("numTel"));
                 u.setMail(rs.getString("mail"));
-               u.setIdUser(rs.getInt("idUser"));
-               u.setPassword(rs.getString("password"));
-               u.setUsername(rs.getString("username"));
-               u.setSexe(rs.getString("sexe"));
-               u.setRole(rs.getString("role"));
-               
+                u.setIdUser(rs.getInt("idUser"));
+                u.setPassword(rs.getString("password"));
+                u.setUsername(rs.getString("username"));
+                u.setSexe(rs.getString("sexe"));
+                u.setRole(rs.getString("role"));
+
                 result.add(u);
 
             }
@@ -150,9 +149,6 @@ public class UserCrud {
 
     }
 
-     
-     
-     
     public String listUtilisateurs() {
         String mail = "";
         String requete = "SELECT * FROM user";
@@ -172,7 +168,7 @@ public class UserCrud {
                 u.setNumTel(rs.getInt("numTel"));
                 u.setRole(rs.getString("role"));
 
-                mail += "L'utilisateur numero " + u.getIdUser()+ " :";
+                mail += "L'utilisateur numero " + u.getIdUser() + " :";
                 mail += "\n  Nom = " + u.getNom();
                 mail += "\n  Prenom = " + u.getPrenom();
                 mail += "\n  Mot de passe = " + u.getPassword();
@@ -188,22 +184,48 @@ public class UserCrud {
         }
         return mail;
     }
-    
-    
-    
-     public void ModifierMdpUserInterfaceee(String maill, String mdpN) {
+
+    public void ModifierMdpUserInterfaceee(String maill, String mdpN) {
         try {
-                String requetee = "UPDATE user SET password=? WHERE mail=?";
-                PreparedStatement pstt = cnx.prepareStatement(requetee);
-                pstt.setString(1, mdpN);
-                pstt.setString(2, maill);
-                pstt.executeUpdate();
-            
+            String requetee = "UPDATE user SET password=? WHERE mail=?";
+            PreparedStatement pstt = cnx.prepareStatement(requetee);
+            pstt.setString(1, mdpN);
+            pstt.setString(2, maill);
+            pstt.executeUpdate();
+
             System.out.println("User modifié !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
+    public User getUserById(int idU) {
+        User u = new User();
+        try {
+            String requete3 = "SELECT * FROM user WHERE `idUser` = " + idU + " ";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+
+            
+            while (rs.next()) {
+
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setNumTel(rs.getInt("numTel"));
+                u.setMail(rs.getString("mail"));
+                u.setIdUser(rs.getInt("idUser"));
+                u.setPassword(rs.getString("password"));
+                u.setUsername(rs.getString("username"));
+                u.setSexe(rs.getString("sexe"));
+                u.setRole(rs.getString("role"));
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+      return u ;
+    }
 
 }

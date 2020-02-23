@@ -72,8 +72,8 @@ public class AnnonceReadController implements Initializable {
         ArrayList<Annonce> rs = new ArrayList<Annonce>();
 
         rs = an.ReadAnnonce(us.getParam());
-        txtChauf.setText(rs.get(0).getNomUser());
-        txtChauf.setText(rs.get(0).getNomUser());
+        txtChauf.setText(rs.get(0).getUser().getNom());
+        System.out.println(rs.get(0).getUser().getNom());
         txtDat.setText(rs.get(0).getDateAnnonce());
         txtDep.setText(rs.get(0).getLieuDepart());
         txtArr.setText(rs.get(0).getLieuArrivee());

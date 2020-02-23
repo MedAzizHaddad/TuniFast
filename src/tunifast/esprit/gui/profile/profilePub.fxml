@@ -1,11 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.ProfilePubController">
-    
-</AnchorPane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="368.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.ProfilePubController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox prefHeight="132.0" prefWidth="373.0">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/profilepic.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="30.0" right="78.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="123.0" prefWidth="173.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text accessibleRole="IMAGE_VIEW" fill="#ffff8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" textOrigin="CENTER" wrappingWidth="61.470062255859375">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="10.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="164.0">
+                           <children>
+                              <Label prefHeight="42.0" prefWidth="153.0" text="LABEL" textFill="#ffff8d">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="23.0" prefWidth="157.0">
+                           <children>
+                              <ImageView fitHeight="27.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="17.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="63.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="86.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="40.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="97.0" prefWidth="330.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="165.0">
+                     <children>
+                        <JFXButton onAction="#messageHandler" prefHeight="5.0" prefWidth="100.0" text="Message">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="32.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <BorderPane prefHeight="8.0" prefWidth="164.0" />
+                        <Button mnemonicParsing="false" onAction="#appelerHandler" prefHeight="5.0" prefWidth="100.0" text="Appeler">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="32.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="96.0" prefWidth="223.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#noterHandler" prefHeight="39.0" prefWidth="100.0" text="Noter">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="70.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <BorderPane prefHeight="8.0" prefWidth="164.0" />
+                        <Button mnemonicParsing="false" onAction="#signalerHandler" prefHeight="5.0" prefWidth="100.0" text="Signaler">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="70.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <StackPane fx:id="changingField">
+               <children>
+                  <HBox fx:id="part3" prefHeight="188.0" prefWidth="330.0">
+                     <children>
+                        <VBox prefHeight="164.0" prefWidth="111.0">
+                           <children>
+                              <JFXTextField fx:id="txt1" alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="117.0" text="Nom :">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txt2" layoutX="10.0" layoutY="10.0" text="Prenom :">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txt3" layoutX="10.0" layoutY="47.0" text="Email :">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txt4" layoutX="10.0" layoutY="84.0" text="Tel :">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="5.0" />
+                           </opaqueInsets>
+                        </VBox>
+                        <VBox prefHeight="180.0" prefWidth="231.0">
+                           <children>
+                              <JFXTextField fx:id="txtNom">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtPrenom" layoutX="10.0" layoutY="10.0">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtmail" layoutX="10.0" layoutY="47.0">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtTel" layoutX="10.0" layoutY="84.0">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="5.0" />
+                           </opaqueInsets>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefHeight="76.0" prefWidth="700.0">
+                     <children>
+                        <JFXButton fx:id="btn2" layoutX="41.0" layoutY="17.0" onAction="#clear" prefHeight="43.0" prefWidth="93.0" text="Clear" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="700.0">
+                     <children>
+                        <JFXButton fx:id="btn1" layoutX="50.0" layoutY="19.0" onAction="#actionBtn" prefHeight="43.0" prefWidth="93.0" text="Fermer" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

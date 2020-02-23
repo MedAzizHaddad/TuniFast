@@ -149,7 +149,10 @@ and open the template in the editor.
     -fx-font-size: 14pt;
     -fx-text-alignment: center;
 }
-
+.text-area .text {
+    -fx-fill: #1e88e5;
+    -fx-font-size: 32px;
+}
 .submission-container{
     -fx-background-color: derive(-fx-primary, 10%);
 }

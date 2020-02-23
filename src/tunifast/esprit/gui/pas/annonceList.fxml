@@ -54,6 +54,7 @@
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#reserver" text="reserver" />
                               <MenuItem mnemonicParsing="false" onAction="#afficher" text="afficher" />
+                              <MenuItem mnemonicParsing="false" onAction="#profilHandler" text="voir profil" />
                               <MenuItem mnemonicParsing="false" onAction="#refresh" text="refresh" />
                            </items></ContextMenu>
                      </contextMenu>
