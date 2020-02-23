@@ -77,6 +77,8 @@ public class InscriptionController implements Initializable {
 
     @FXML
     private void cancel(ActionEvent event) {
+             Stage stage = (Stage) nom.getScene().getWindow();
+        stage.close();
     }
 
     public boolean testChamps() {

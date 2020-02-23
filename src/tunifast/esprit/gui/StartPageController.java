@@ -40,7 +40,7 @@ public class StartPageController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
             Parent parent = loader.load();
             Stage stage = null;
-                stage = new Stage(StageStyle.DECORATED);
+                stage = new Stage(StageStyle.UNDECORATED);
             stage.setTitle("login");
             stage.setScene(new Scene(parent));
             stage.show();
@@ -60,7 +60,7 @@ public class StartPageController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("inscription.fxml"));
             Parent parent = loader.load();
             Stage stage = null;
-                stage = new Stage(StageStyle.DECORATED);
+                stage = new Stage(StageStyle.TRANSPARENT);
             stage.setTitle("inscription");
             stage.setScene(new Scene(parent));
             stage.show();

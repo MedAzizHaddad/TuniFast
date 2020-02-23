@@ -150,4 +150,60 @@ public class UserCrud {
 
     }
 
+     
+     
+     
+    public String listUtilisateurs() {
+        String mail = "";
+        String requete = "SELECT * FROM user";
+
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);// trajaa base de donnee huh
+            while (rs.next()) {
+                mail += "\n\n";
+                User u = new User();
+                u.setIdUser(rs.getInt("idUser"));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setPassword(rs.getString("password"));
+                u.setSexe(rs.getString("sexe"));
+                u.setMail(rs.getString("mail"));
+                u.setNumTel(rs.getInt("numTel"));
+                u.setRole(rs.getString("role"));
+
+                mail += "L'utilisateur numero " + u.getIdUser()+ " :";
+                mail += "\n  Nom = " + u.getNom();
+                mail += "\n  Prenom = " + u.getPrenom();
+                mail += "\n  Mot de passe = " + u.getPassword();
+                mail += "\n  Sexe = " + u.getSexe();
+                mail += "\n  Mail = " + u.getMail();
+                mail += "\n  Telephone = " + u.getNumTel();
+                mail += "\n  Role = " + u.getRole();
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return mail;
+    }
+    
+    
+    
+     public void ModifierMdpUserInterfaceee(String maill, String mdpN) {
+        try {
+                String requetee = "UPDATE user SET password=? WHERE mail=?";
+                PreparedStatement pstt = cnx.prepareStatement(requetee);
+                pstt.setString(1, mdpN);
+                pstt.setString(2, maill);
+                pstt.executeUpdate();
+            
+            System.out.println("User modifié !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
 }

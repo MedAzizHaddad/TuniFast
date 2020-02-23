@@ -39,7 +39,7 @@ public class Auth {
     public ArrayList<User> loginTest(String log, String pwd) {
         ArrayList<User> userList = new ArrayList<>();
         try {
-            String requete3 = " SELECT * FROM `user` WHERE `numTel` = ? AND `password` = ?";
+            String requete3 = " SELECT * FROM `user` WHERE `mail` = ? AND `password` = ?";
             PreparedStatement pst2 = cnx.prepareStatement(requete3);
             pst2.setString(1, log);
             pst2.setString(2, pwd);

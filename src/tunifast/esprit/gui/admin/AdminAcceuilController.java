@@ -27,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Service.UserCrud;
+import tunifast.esprit.Utils.PDFutil;
 
 /**
  * FXML Controller class
@@ -146,15 +147,13 @@ public class AdminAcceuilController implements Initializable {
     }
 
     @FXML
-    private void exporter(ActionEvent event) {
+    private void exporter(ActionEvent event) throws com.lowagie.text.DocumentException {
         
         try {
             PDFutil pdf = new PDFutil();
             try {
                 pdf.listUtilisateurs();
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(AdminAcceuilController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (DocumentException ex) {
                 Logger.getLogger(AdminAcceuilController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {

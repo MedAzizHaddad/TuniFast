@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/test/NewClass.java</file>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/chauf/AnnonceReadChaufController.java</file>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Service/MessageCrud.java</file>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Entitie/messages.java</file>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/profile/ProfilePersController.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/admin/AdminAcceuilController.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Utils/PDFutil.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Service/ReservationCrud.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/admin/DocumentException.java</file>
         </group>
     </open-files>
 </project-private>

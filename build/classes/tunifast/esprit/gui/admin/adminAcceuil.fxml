@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,6 +12,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
 <AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="874.0" stylesheets="@../../../../resources/design.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tunifast.esprit.gui.admin.AdminAcceuilController">
@@ -41,7 +45,24 @@
                                  <children>
                                     <HBox prefHeight="52.0" prefWidth="600.0">
                                        <children>
-                                          <JFXTextField fx:id="filterField" prefHeight="37.0" prefWidth="471.0" />
+                                          <Text fill="#ffff8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtre :" wrappingWidth="72.13671875">
+                                             <font>
+                                                <Font name="Cambria" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="30.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField fx:id="filterField" prefHeight="37.0" prefWidth="446.0" promptText="Filtrez votre recherche ici ">
+                                             <padding>
+                                                <Insets left="100.0" />
+                                             </padding>
+                                          </JFXTextField>
+                                          <JFXButton onAction="#exporter" prefHeight="43.0" prefWidth="148.0" text="Exporter PDF">
+                                             <HBox.margin>
+                                                <Insets left="120.0" />
+                                             </HBox.margin>
+                                          </JFXButton>
                                        </children>
                                     </HBox>
                                     <TableView fx:id="usersTable" prefHeight="372.0" prefWidth="709.0">

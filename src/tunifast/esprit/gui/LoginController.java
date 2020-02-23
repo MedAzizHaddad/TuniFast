@@ -7,6 +7,9 @@ package tunifast.esprit.gui;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import tunifast.esprit.Utils.JavamailUtil;
+import tunifast.esprit.Utils.JavamailUtil1;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +27,9 @@ import javafx.stage.StageStyle;
 import tunifast.esprit.Entitie.Profile;
 import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Service.ProfileCrud;
+import javafx.scene.web.WebEngine;
+import javax.mail.event.MailEvent;
+import tunifast.esprit.Service.UserCrud;
 
 /**
  * FXML Controller class
@@ -33,17 +39,11 @@ import tunifast.esprit.Service.ProfileCrud;
 public class LoginController implements Initializable {
     
     @FXML
-    private JFXTextField tel;
-    @FXML
     private JFXPasswordField pw;
+    @FXML
+    private JFXTextField email;
 
-    public String getTel() {
-        return tel.getText();
-    }
 
-    public String getPw() {
-        return pw.getText();
-    }
 
     /**
      * Initializes the controller class.
@@ -54,30 +54,31 @@ public class LoginController implements Initializable {
     }    
 
     @FXML
-    private void handleLoginButtonAction(ActionEvent event) {
+   private void handleLoginButtonAction(ActionEvent event) {
          ArrayList<Profile> p = new ArrayList<>();
         Auth UserTest = new Auth();
          ProfileCrud pc = new ProfileCrud();
       
-        if (UserTest.loginTest(getTel(), getPw()).isEmpty()) {
-           tel.getStyleClass().add("wrong-credentials");
+        if (UserTest.loginTest(email.getText(), pw.getText()).isEmpty()) {
+           email.getStyleClass().add("wrong-credentials");
             pw.getStyleClass().add("wrong-credentials");
-        } else if(UserTest.loginTest(getTel(), getPw()).get(0).getRole().equals("passager")
-                || UserTest.loginTest(getTel(), getPw()).get(0).getRole().equals("chauffeur") ) {
-            int id =UserTest.loginTest(getTel(), getPw()).get(0).getIdUser() ;
-            String role = UserTest.loginTest(getTel(), getPw()).get(0).getRole() ;
+        } else if(UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole().equals("passager")
+                || UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole().equals("chauffeur") ) {
+           int id =UserTest.loginTest(email.getText(), pw.getText()).get(0).getIdUser() ;
+           String role = UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole() ;
             UserSession us = UserSession.getInstance(id , role );
                closeStage();
                 loadMain1();  
-        } else if(UserTest.loginTest(getTel(), getPw()).get(0).getRole().equals("admin") ) {
-            int id =UserTest.loginTest(getTel(), getPw()).get(0).getIdUser() ;
-            String role = UserTest.loginTest(getTel(), getPw()).get(0).getRole() ;
+        } else if(UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole().equals("admin") ) {
+            int id =UserTest.loginTest(email.getText(), pw.getText()).get(0).getIdUser() ;
+            String role = UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole() ;
             UserSession us = UserSession.getInstance(id , role );
                closeStage();
                 loadMain3();  
         }
-    }
+   }
 
+  
     @FXML
     private void handleCancelButtonAction(ActionEvent event) {
 
@@ -135,5 +136,19 @@ public class LoginController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+
+    @FXML
+    private void resetPassword(ActionEvent event) {
+        
+        try {
+                String str = email.getText();
+                JavamailUtil1 mail = new JavamailUtil1();
+                String x = JavamailUtil1.sendMail(str);
+                UserCrud userC = new UserCrud();
+                userC.ModifierMdpUserInterfaceee(str, x);
+        } catch (Exception ex) {
+            Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
