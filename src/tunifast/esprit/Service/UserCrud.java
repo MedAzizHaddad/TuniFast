@@ -114,5 +114,40 @@ public class UserCrud {
         }
         return true;
     }
+    
+     public ArrayList<User> getAllUsers() {
+
+        ArrayList<User> result = new ArrayList<User>();
+       
+        try {
+            String requete3 = "SELECT * FROM user ";
+
+            PreparedStatement pst2 = cnx.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+        
+       
+            while (rs.next()) {
+                User u = new User();
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setNumTel(rs.getInt("numTel"));
+                u.setMail(rs.getString("mail"));
+               u.setIdUser(rs.getInt("idUser"));
+               u.setPassword(rs.getString("password"));
+               u.setUsername(rs.getString("username"));
+               u.setSexe(rs.getString("sexe"));
+               u.setRole(rs.getString("role"));
+               
+                result.add(u);
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        return result;
+
+    }
 
 }
