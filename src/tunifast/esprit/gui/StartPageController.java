@@ -5,6 +5,8 @@
  */
 package tunifast.esprit.gui;
 
+import com.jfoenix.controls.JFXButton;
+import tunifast.esprit.Entitie.UserSession;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,12 +28,15 @@ import javafx.stage.StageStyle;
  */
 public class StartPageController implements Initializable {
 
+    @FXML
+    private JFXButton btnLogin;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }    
 
     @FXML
@@ -40,7 +45,7 @@ public class StartPageController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
             Parent parent = loader.load();
             Stage stage = null;
-                stage = new Stage(StageStyle.UNDECORATED);
+                stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("login");
             stage.setScene(new Scene(parent));
             stage.show();

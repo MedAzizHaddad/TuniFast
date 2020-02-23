@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import tunifast.esprit.Entitie.Annonce;
 import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Service.AnnonceCrud;
@@ -88,6 +89,10 @@ public class AnnonceReadController implements Initializable {
 
     @FXML
     private void fermer(ActionEvent event) {
+          // get a handle to the stage
+    Stage stage = (Stage) txtDep.getScene().getWindow();
+    // do what you have to do
+    stage.close();
     }
 
 }

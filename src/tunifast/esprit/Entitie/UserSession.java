@@ -5,6 +5,8 @@
  */
 package tunifast.esprit.Entitie;
 
+import javafx.stage.Stage;
+
 /**
  *
  * @author mohamedazizhaddad
@@ -16,7 +18,7 @@ public final class UserSession {
     private int idUser;
     private String  role;
     private int param ;
-
+    private Stage s ;
     private UserSession(int idUser, String  role) {
         this.idUser = idUser;
         this.role = role;
@@ -30,6 +32,7 @@ public final class UserSession {
     public UserSession() {
     }
 
+  
     public UserSession(int idUser) {
         this.idUser = idUser;
     }
@@ -47,7 +50,16 @@ public final class UserSession {
         instance = new UserSession(idUser,role,param);
         return instance;
     }
+//--------------------------------------------------------------------
+    public UserSession(Stage s) {
+        this.s = s;
+    }
 
+     public static UserSession getInstance(Stage s ) {
+        instance = new UserSession(s);
+        return instance;
+    }
+//--------------------------------------------------------------------
     public int getIdUser() {
         return idUser;
     }
@@ -58,6 +70,10 @@ public final class UserSession {
 
     public int getParam() {
         return param;
+    }
+
+    public Stage getS() {
+        return s;
     }
 
     public void cleanUserSession() {

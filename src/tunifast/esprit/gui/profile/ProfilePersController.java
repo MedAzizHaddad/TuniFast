@@ -66,25 +66,27 @@ public class ProfilePersController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UserSession us = UserSession.getInstance();
+     
+       
         UserCrud u = new UserCrud();
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-            
-
+               
+                affContacts();
             }
         }, 0, 4000);
-            affContacts();
+
         listContacts.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
                 String selectedUsername = listContacts.getSelectionModel().getSelectedItem();
                 int selectedId = u.getIduByUsername(selectedUsername);
-               TuniFastUtil.parSession(selectedId);
-                   affMessages(selectedId);
+                System.out.println(selectedId);
+                TuniFastUtil.parSession(selectedId);
+                affMessages(selectedId);
             }
         }
         );
@@ -92,12 +94,14 @@ public class ProfilePersController implements Initializable {
 
     public void affContacts() {
         UserCrud u = new UserCrud();
+        UserSession us = UserSession.getInstance();
+        System.out.println(us.getIdUser()+"///////"+us.getParam());
         Connection cnx = DataBase.getInstance().getCnx();
         Statement st;
         ObservableList<String> data = FXCollections.observableArrayList();
         ArrayList<messages> result = new ArrayList<messages>();
         MessageCrud m = new MessageCrud();
-        result = m.getContacts(1);
+        result = m.getContacts(us.getIdUser());
         for (int i = 0; i < result.size(); i++) {
             //  data.add(Integer.toString(result.get(i).getExp()));
             data.add(u.getUsernameByIdu(result.get(i).getExp()));
@@ -108,7 +112,7 @@ public class ProfilePersController implements Initializable {
     public void affMessages(int i) {
         UserSession us = UserSession.getInstance();
         UserCrud u = new UserCrud();
-     //   System.out.println(us.getIdUser());
+        //   System.out.println(us.getIdUser());
         ObservableList<String> data = FXCollections.observableArrayList();
         ArrayList<messages> result1 = new ArrayList<messages>();
         MessageCrud m1 = new MessageCrud();
@@ -116,6 +120,7 @@ public class ProfilePersController implements Initializable {
         //------------------
         //--------------
         result1 = m1.getMessages(i, us.getIdUser());
+      //  System.out.println(i +"---------+" + us.getIdUser());
         ObservableList<msgCell> msgType = FXCollections.observableArrayList();
         for (int j = 0; j < result1.size(); j++) {
             //  System.out.println(result1.get(j).getExp());
@@ -168,9 +173,10 @@ public class ProfilePersController implements Initializable {
         MessageCrud ms = new MessageCrud();
 //        System.out.println(us.getParam());
 //        System.out.println(txtMessage.getText());
-     ms.sendMessage(us.getIdUser(), us.getParam(), txtMessage.getText());
+        ms.sendMessage(us.getIdUser(), us.getParam(), txtMessage.getText());
         affMessages(us.getParam());
-       txtMessage.clear();    }
+        txtMessage.clear();
+    }
 
     class msgCell {
 

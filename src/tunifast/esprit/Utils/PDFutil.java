@@ -150,10 +150,12 @@ public class PDFutil {
             cell.setBackgroundColor(Color.white);
             table.addCell(cell);
 
-//            cell = new PdfPCell(new Phrase(u.getNumTel(), FontFactory.getFont("Comic Sans MS", 12)));
-//            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-//            cell.setBackgroundColor(Color.white);
-//            table.addCell(cell);
+            String num  = Integer.toString(u.getNumTel());
+            
+            cell = new PdfPCell(new Phrase(num , FontFactory.getFont("Comic Sans MS", 12)));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(Color.white);
+            table.addCell(cell);
             
             cell = new PdfPCell(new Phrase(u.getRole(), FontFactory.getFont("Comic Sans MS", 12)));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);

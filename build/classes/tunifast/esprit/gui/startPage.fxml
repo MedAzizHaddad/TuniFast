@@ -17,7 +17,7 @@
                <children>
                   <AnchorPane prefHeight="73.0" prefWidth="611.0">
                      <children>
-                        <JFXButton layoutX="23.0" layoutY="12.0" onAction="#login" prefHeight="43.0" prefWidth="143.0" text="se connecter" />
+                        <JFXButton fx:id="btnLogin" layoutX="23.0" layoutY="12.0" onAction="#login" prefHeight="43.0" prefWidth="143.0" text="se connecter" />
                         <JFXButton layoutX="427.0" layoutY="12.0" onAction="#inscription" prefHeight="43.0" prefWidth="184.0" text="Inscription" />
                         <Text fill="#b6cd51" layoutX="193.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas un compte ?">
                            <font>
