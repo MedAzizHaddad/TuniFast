@@ -42,6 +42,7 @@ import javafx.stage.StageStyle;
 import tunifast.esprit.Entitie.Profile;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Entitie.UserSession;
+import tunifast.esprit.Service.UserCrud;
 import tunifast.esprit.gui.AcceuilController;
 
 public class TuniFastUtil {
@@ -129,6 +130,18 @@ public class TuniFastUtil {
 
         UserSession us1 = new UserSession().getInstance(x, y, z);
 
+    }
+    
+    public static boolean testUnicité(String tab, String col, String val) {
+        UserCrud prof = new UserCrud();
+        boolean result = false;
+        if (prof.fetchColExist(tab, col, val)) {
+            result = false; // n'existe pas 
+
+        } else {
+            result = true;
+        }
+        return result;
     }
     
    

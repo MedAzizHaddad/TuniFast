@@ -88,12 +88,13 @@ public class LoginController implements Initializable {
     @FXML
     private void handleCancelButtonAction(ActionEvent event) {
 
-        System.exit(0);
+         Stage stage = (Stage) pw.getScene().getWindow();
+        stage.close();
     }
     
     
     private void closeStage() {
-        ((Stage) tel.getScene().getWindow()).close();
+      //  ((Stage) tel.getScene().getWindow()).close();
     }
 
     void loadMain1() {

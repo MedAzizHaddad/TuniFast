@@ -5,6 +5,8 @@
  */
 package tunifast.esprit.Entitie;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.util.Objects;
 
 /**
@@ -24,6 +26,15 @@ public class User {
     private String username; 
 
     public User() {
+    }
+
+    public User(String nom, String prenom, String mail, int numTel, String password, String username) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.numTel = numTel;
+        this.password = password;
+        this.username = username;
     }
 
     public User(int idUser, String nom, String prenom, String mail, int numTel, String sexe, String role, String password, String username) {
@@ -48,6 +59,9 @@ public class User {
         this.role = role;
         this.password = password;
     }
+
+   
+
 
     public String getUsername() {
         return username;
