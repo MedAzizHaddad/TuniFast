@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane stylesheets="@../../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.reclamation.UserListReclamationController">
+<StackPane stylesheets="@../../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.admin.reclamation.AdminListReclamationController">
    <children>
       <VBox prefHeight="388.0" prefWidth="871.0">
          <children>
@@ -29,7 +29,12 @@
                <contextMenu>
                   <ContextMenu>
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#details" text="voir details / modifier" />
+                      <MenuItem mnemonicParsing="false" onAction="#details" text="voir details" />
+                        <MenuItem mnemonicParsing="false" onAction="#profile" text="voir profil" />
+                        <MenuItem mnemonicParsing="false" onAction="#adver" text="envoie Avertissement" />
+                        <MenuItem mnemonicParsing="false" onAction="#suspendre" text="suspendre" />
+                        <MenuItem mnemonicParsing="false" onAction="#ignorer" text="ignorer" />
+                        <MenuItem mnemonicParsing="false" onAction="#actualisez" text="actualiser" />
                     </items>
                   </ContextMenu>
                </contextMenu>

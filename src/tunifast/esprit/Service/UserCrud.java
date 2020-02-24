@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import tunifast.esprit.Entitie.Reclamation;
 import tunifast.esprit.Entitie.Reservation;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Utils.DataBase;
@@ -227,5 +228,20 @@ public class UserCrud {
         }
       return u ;
     }
+    
+    public void suspendre(int idU){
+         try {
+            String requetee = "UPDATE user SET etat='suspendu' WHERE idUser="+idU+"";
+            PreparedStatement pstt = cnx.prepareStatement(requetee);
+   
+            pstt.executeUpdate();
 
+            System.out.println("User suspendu !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+   
 }
