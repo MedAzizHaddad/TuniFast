@@ -79,7 +79,14 @@ public class ToolbarController implements Initializable {
 
     @FXML
     private void annoncer(ActionEvent event) {
-        System.out.println(btnRole.isSelected());
+        System.out.println("chauf mode annoncer");
+    
+       if (btnRole.isSelected()) {
+                  TuniFastUtil.loadWindow(getClass().getResource("chauf/annoncerChauf.fxml"), "annoncer un traget", null);
+
+        } else {
+           System.out.println("mode 2");
+        }
     }
 
     @FXML

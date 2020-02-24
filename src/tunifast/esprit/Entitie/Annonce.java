@@ -30,6 +30,7 @@ public class Annonce {
     private int nbrPlaceDispo;
     private int nbPlaceReser;
     
+    
     private String dateAnnPost;
     //////////// 
     private String nomUser ;

@@ -10,9 +10,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -237,5 +241,21 @@ public class AnnonceCrud {
            return res;
                } 
    
-           
+    public void ajoutAnnonce (String dep , String arr , LocalDate date , LocalTime heure  , int place, int idUser){
+        
+        System.out.println(date + "hii " + heure);
+          try {
+            String requete2 = "INSERT INTO `annonce`( `lieuDepart` , `lieuArrivee` , `dateAnnonce`, `heureAnnonce` , `nbrPlaceDispo` , `idUser` , `dateAnnPost` , `type`)"
+                    + " VALUES ('"+dep+"','"+arr+"' ,'"+date+"' , '"+heure+"',"+place+"," +idUser+" , now(), 'chauffeur')";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+            pst.executeUpdate();
+            System.out.println("annonce créer");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+                
+                
+                
 }
