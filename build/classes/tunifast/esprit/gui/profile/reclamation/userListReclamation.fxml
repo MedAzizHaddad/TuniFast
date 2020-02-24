@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -24,6 +26,13 @@
                   <TableColumn fx:id="etatRecCol" minWidth="0.0" prefWidth="145.0" text="etat reclamation" />
                   <TableColumn fx:id="etatUserCol" minWidth="0.0" prefWidth="135.0" text="etat utilisateur" />
                </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#details" text="voir details" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
             </TableView>
             <StackPane prefHeight="30.0" prefWidth="871.0">
                <children>

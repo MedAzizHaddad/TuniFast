@@ -36,9 +36,7 @@ import tunifast.esprit.gui.alert.AlertMaker;
  */
 public class ProfilePubController implements Initializable {
 
-    @FXML
     private JFXTextField txtNom;
-    @FXML
     private JFXTextField txtPrenom;
     @FXML
     private JFXTextField txtmail;
@@ -62,6 +60,10 @@ public class ProfilePubController implements Initializable {
     @FXML
     private JFXButton btn1;
     public JFXTextArea text = new JFXTextArea();
+    @FXML
+    private JFXTextField txtUsername;
+    @FXML
+    private JFXTextField txtRole;
 
     /**
      * Initializes the controller class.
@@ -69,8 +71,8 @@ public class ProfilePubController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        txtNom.setEditable(false);
-        txtPrenom.setEditable(false);
+        txtUsername.setEditable(false);
+        txtRole.setEditable(false);
         txtTel.setEditable(false);
         txtmail.setEditable(false);
         txt1.setEditable(false);
@@ -82,8 +84,8 @@ public class ProfilePubController implements Initializable {
         UserCrud uc = new UserCrud();
         UserSession us = UserSession.getInstance();
         res = uc.getUserById(us.getParam());
-        txtNom.setText(res.getNom());
-        txtPrenom.setText(res.getPrenom());
+        txtUsername.setText(res.getUsername());
+        txtRole.setText(res.getRole());
         txtTel.setText(Integer.toString(res.getNumTel()));
         txtmail.setText(res.getMail());
 
@@ -226,9 +228,9 @@ public class ProfilePubController implements Initializable {
                     Reclamation rec = new Reclamation();
         UserSession us = UserSession.getInstance();
         UserCrud uc = new UserCrud();
-                    rec.setUserReported(uc.getUsernameByIdu(us.getIdUser()));
+                    rec.setUserReporter(uc.getUsernameByIdu(us.getIdUser()));
                     rec.setUserReported(uc.getUsernameByIdu(us.getParam()));
-                    System.out.println(us.getIdUser() +" *************"+us.getParam());
+               //     System.out.println(us.getIdUser() +" *************"+us.getParam());
                     rec.setDetails(text.getText());
                    
                     recCrud.ajouterReclamation(rec);

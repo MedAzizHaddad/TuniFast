@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Pagination;
@@ -24,7 +25,10 @@ import tunifast.esprit.Entitie.Reclamation;
 import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Service.AnnonceCrud;
 import tunifast.esprit.Service.ReclamationCrud;
+import tunifast.esprit.Service.ReservationCrud;
 import tunifast.esprit.Service.UserCrud;
+import tunifast.esprit.Utils.TuniFastUtil;
+import tunifast.esprit.gui.alert.AlertMaker;
 
 /**
  * FXML Controller class
@@ -95,16 +99,24 @@ public class UserListReclamationController implements Initializable {
 //            
         masterData.clear();
         ReclamationCrud recC = new ReclamationCrud();
-        Reclamation rec = new Reclamation();
+
         UserSession us = UserSession.getInstance();
         UserCrud uc = new UserCrud();
         ArrayList<Reclamation> rs = new ArrayList<Reclamation>();
-        rs = recC.UserConsRec(uc.getUsernameByIdu(us.getIdUser()));
-        for (int i = 0; i < rs.size(); i++) {
 
+        rs = recC.UserConsRec(uc.getUsernameByIdu(us.getIdUser()));
+        System.out.println(us.getIdUser());
+        System.out.println(uc.getUsernameByIdu(us.getIdUser()));
+        System.out.println(rs.size());
+        rs = recC.UserConsRec(uc.getUsernameByIdu(us.getIdUser()));
+
+        for (int i = 0; i < rs.size(); i++) {
+            Reclamation rec = new Reclamation();
+            rec.setIdReclamation(rs.get(i).getIdReclamation());
             rec.setDateReclamation(rs.get(i).getDateReclamation());
             rec.setUserReported(rs.get(i).getUserReported());
             rec.setDetails(rs.get(i).getDetails());
+
             rec.setEtatReclamation(rs.get(i).getEtatReclamation());
             rec.setEtatUser(rs.get(i).getEtatUser());
             masterData.add(rec);
@@ -127,4 +139,18 @@ public class UserListReclamationController implements Initializable {
 
     }
 
+    @FXML
+    private void details(ActionEvent event) {
+        UserSession us = new UserSession().getInstance();
+        ReservationCrud res = new ReservationCrud();
+        Reclamation selectedAn = reclamationTable.getSelectionModel().getSelectedItem();
+         
+        if (selectedAn == null) {
+            AlertMaker.showSimpleAlert("aucune reclamation selectionné !! ", "veuillez selecionner une reclamation");
+        } else {
+            TuniFastUtil.parSession(selectedAn.getIdReclamation());
+            TuniFastUtil.loadWindow(getClass().getResource("readReclamation.fxml"), "list des annonces", null);
+      
+        }
+    }
 }

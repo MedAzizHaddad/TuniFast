@@ -155,7 +155,7 @@
                      <children>
                         <VBox prefHeight="164.0" prefWidth="111.0">
                            <children>
-                              <JFXTextField fx:id="txt1" alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="117.0" text="Nom :">
+                              <JFXTextField fx:id="txt1" alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="117.0" text="Username : ">
                                  <opaqueInsets>
                                     <Insets left="5.0" />
                                  </opaqueInsets>
@@ -163,7 +163,7 @@
                                     <Insets left="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="txt2" layoutX="10.0" layoutY="10.0" text="Prenom :">
+                              <JFXTextField fx:id="txt2" layoutX="10.0" layoutY="10.0" text="Role :">
                                  <opaqueInsets>
                                     <Insets left="5.0" />
                                  </opaqueInsets>
@@ -191,7 +191,7 @@
                         </VBox>
                         <VBox prefHeight="180.0" prefWidth="231.0">
                            <children>
-                              <JFXTextField fx:id="txtNom">
+                              <JFXTextField fx:id="txtUsername">
                                  <opaqueInsets>
                                     <Insets left="5.0" />
                                  </opaqueInsets>
@@ -199,7 +199,7 @@
                                     <Insets left="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtPrenom" layoutX="10.0" layoutY="10.0">
+                              <JFXTextField fx:id="txtRole" layoutX="10.0" layoutY="10.0">
                                  <opaqueInsets>
                                     <Insets left="5.0" />
                                  </opaqueInsets>

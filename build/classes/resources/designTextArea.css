@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 24, 2020, 12:21:10 PM
+    Author     : mohamedazizhaddad
+*/
+
+.text-area{
+    -fx-font-size: 2em; -fx-control-inner-background:#000000; -fx-font-family: Zapf Chancery;
+    -fx-highlight-fill:#FFFF8D; -fx-highlight-text-fill: #000000; 
+    -fx-text-fill: #FFFF8D;
+
+
+}
+
