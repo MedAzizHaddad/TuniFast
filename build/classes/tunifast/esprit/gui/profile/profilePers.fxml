@@ -11,81 +11,88 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="719.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.ProfilePersController">
-   <children>
-      <JFXTabPane>
-         <tabs>
-            <Tab text="profile">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <StackPane layoutX="47.0" layoutY="93.0" prefHeight="446.0" prefWidth="719.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <VBox prefHeight="446.0" prefWidth="600.0" />
-                                    <VBox prefHeight="446.0" prefWidth="600.0" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </StackPane>
-                     </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="messages">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <VBox layoutX="106.0" layoutY="75.0" prefHeight="392.0" prefWidth="660.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <HBox prefHeight="56.0" prefWidth="660.0" />
-                              <HBox prefHeight="351.0" prefWidth="660.0">
-                                 <children>
-                                    <HBox prefHeight="298.0" prefWidth="157.0">
-                                       <children>
-                                          <JFXListView fx:id="listContacts" prefHeight="325.0" prefWidth="147.0" />
-                                       </children>
-                                    </HBox>
-                                    <VBox prefHeight="298.0" prefWidth="524.0">
-                                       <children>
-                                          <ListView fx:id="listMessages" prefHeight="335.0" prefWidth="514.0" />
-                                          <HBox prefHeight="100.0" prefWidth="200.0">
-                                             <children>
-                                                <JFXTextField fx:id="txtMessage" prefHeight="48.0" prefWidth="335.0" promptText="ecrire votre message ici" />
-                                                <JFXButton fx:id="btnMessage" onAction="#sendMessage" prefHeight="55.0" prefWidth="146.0" text="Envoyer" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="notifications">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="mes annonces">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="mes reservations">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="my payments">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-         </tabs>
-      </JFXTabPane>
-   </children>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="871.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.ProfilePersController">
+    <children>
+        <JFXTabPane prefHeight="410.0" prefWidth="800.0">
+            <tabs>
+                <Tab text="profile">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <StackPane layoutX="47.0" layoutY="93.0" prefHeight="446.0" prefWidth="719.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                            <children>
+                                                <VBox prefHeight="446.0" prefWidth="600.0" />
+                                                <VBox prefHeight="446.0" prefWidth="600.0" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="messages">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="106.0" layoutY="75.0" prefHeight="392.0" prefWidth="660.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <HBox prefHeight="56.0" prefWidth="660.0" />
+                                        <HBox prefHeight="351.0" prefWidth="660.0">
+                                            <children>
+                                                <HBox prefHeight="298.0" prefWidth="157.0">
+                                                    <children>
+                                                        <JFXListView fx:id="listContacts" prefHeight="325.0" prefWidth="147.0" />
+                                                    </children>
+                                                </HBox>
+                                                <VBox prefHeight="298.0" prefWidth="524.0">
+                                                    <children>
+                                                        <ListView fx:id="listMessages" prefHeight="335.0" prefWidth="514.0" />
+                                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                                            <children>
+                                                                <JFXTextField fx:id="txtMessage" prefHeight="48.0" prefWidth="335.0" promptText="ecrire votre message ici" />
+                                                                <JFXButton fx:id="btnMessage" onAction="#sendMessage" prefHeight="55.0" prefWidth="146.0" text="Envoyer" />
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="notifications">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="mes annonces">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="mes reservations">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab text="my payments">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab fx:id="tab1" text="mes reclamations">
+                    <content>
+                        <!--                  <AnchorPane fx:id="mesReclamationsPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
+                        <fx:include source="reclamation/userListReclamation.fxml" />    
+                    </content>
+                </Tab>
+            </tabs>
+        </JFXTabPane>
+    </children>
 </StackPane>

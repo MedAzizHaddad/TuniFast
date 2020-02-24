@@ -105,7 +105,7 @@ public class LoginController implements Initializable {
 
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
-            Stage stage = new Stage(StageStyle.TRANSPARENT);
+            Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("TuniFast");
             stage.setScene(new Scene(parent));
             stage.setResizable(false);

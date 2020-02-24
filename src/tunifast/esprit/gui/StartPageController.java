@@ -41,6 +41,7 @@ public class StartPageController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
+        
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
             Parent parent = loader.load();

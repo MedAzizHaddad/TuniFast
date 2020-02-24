@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/Main.java</file>
-            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/pas/AnnonceListController.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/profile/ProfilePubController.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Service/UserCrud.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Entitie/Reclamation.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/profile/reclamation/UserListReclamationController.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/gui/profile/ProfilePersController.java</file>
+            <file>file:/C:/Users/mohamedazizhaddad/Documents/NetBeansProjects89/TuniFast0/src/tunifast/esprit/Service/ReclamationCrud.java</file>
         </group>
     </open-files>
 </project-private>

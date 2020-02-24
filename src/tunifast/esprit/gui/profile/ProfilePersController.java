@@ -8,6 +8,7 @@ package tunifast.esprit.gui.profile;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,10 +30,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Pagination;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jdk.nashorn.internal.ir.CallNode;
 import tunifast.esprit.Entitie.Annonce;
 import tunifast.esprit.Entitie.Reservation;
@@ -60,20 +71,30 @@ public class ProfilePersController implements Initializable {
     private JFXTextField txtMessage;
     @FXML
     private JFXButton btnMessage;
+    private Pane target;
+    @FXML
+    private Tab tab1;
+   public void loadFxml(ActionEvent event) {
+        try {
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("reclamation/userListReclamation.fxml"));
+            target.getChildren().add(newLoadedPane);
+        } catch (IOException ex) {
+            Logger.getLogger(ProfilePersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+    }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
-       
+
         UserCrud u = new UserCrud();
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-               
+
                 affContacts();
             }
         }, 0, 4000);
@@ -90,13 +111,35 @@ public class ProfilePersController implements Initializable {
             }
         }
         );
-        
-    }
 
+    }
+    
+//    public void loadFxml(ActionEvent event) {
+//        try {
+//            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("reclamation/userListReclamation.fxml"));
+//            mesReclamationsPane.getChildren().add(newLoadedPane);
+//        } catch (IOException ex) {
+//            Logger.getLogger(ProfilePersController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
+    public void test(){
+        System.out.println("jo");
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("reclamation/userListReclamation.fxml"));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("TuniFast");
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ProfilePersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void affContacts() {
         UserCrud u = new UserCrud();
         UserSession us = UserSession.getInstance();
-        System.out.println(us.getIdUser()+"///////"+us.getParam());
+       // System.out.println(us.getIdUser() + "///////" + us.getParam());
         Connection cnx = DataBase.getInstance().getCnx();
         Statement st;
         ObservableList<String> data = FXCollections.observableArrayList();
@@ -121,7 +164,7 @@ public class ProfilePersController implements Initializable {
         //------------------
         //--------------
         result1 = m1.getMessages(i, us.getIdUser());
-      //  System.out.println(i +"---------+" + us.getIdUser());
+        //  System.out.println(i +"---------+" + us.getIdUser());
         ObservableList<msgCell> msgType = FXCollections.observableArrayList();
         for (int j = 0; j < result1.size(); j++) {
             //  System.out.println(result1.get(j).getExp());

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane stylesheets="@../../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.reclamation.UserListReclamationController">
+   <children>
+      <VBox prefHeight="388.0" prefWidth="871.0">
+         <children>
+            <HBox prefHeight="63.0" prefWidth="871.0">
+               <children>
+                  <JFXTextField fx:id="filterField" prefHeight="37.0" prefWidth="481.0" />
+               </children></HBox>
+            <TableView fx:id="reclamationTable" prefHeight="338.0" prefWidth="871.0">
+               <columns>
+                  <TableColumn fx:id="dateCol" prefWidth="150.0" text="date reclamation" />
+                  <TableColumn fx:id="userCol" minWidth="0.0" prefWidth="170.0" text="utilisateur reporté" />
+                  <TableColumn fx:id="detailsCol" minWidth="0.0" prefWidth="269.0" text="details" />
+                  <TableColumn fx:id="etatRecCol" minWidth="0.0" prefWidth="145.0" text="etat reclamation" />
+                  <TableColumn fx:id="etatUserCol" minWidth="0.0" prefWidth="135.0" text="etat utilisateur" />
+               </columns>
+            </TableView>
+            <StackPane prefHeight="30.0" prefWidth="871.0">
+               <children>
+                  <Pagination fx:id="pagination" prefHeight="80.0" prefWidth="871.0" />
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

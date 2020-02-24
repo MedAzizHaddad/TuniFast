@@ -8,7 +8,6 @@ package tunifast.esprit.gui.profile;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -19,13 +18,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import tunifast.esprit.Entitie.Reclamation;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Service.MessageCrud;
+import tunifast.esprit.Service.ReclamationCrud;
 import tunifast.esprit.Service.UserCrud;
 import tunifast.esprit.gui.alert.AlertMaker;
 
@@ -86,19 +86,19 @@ public class ProfilePubController implements Initializable {
         txtPrenom.setText(res.getPrenom());
         txtTel.setText(Integer.toString(res.getNumTel()));
         txtmail.setText(res.getMail());
-        
+
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
                 if (btn1.getText().equals("Fermer")) {
                     // get a handle to the stage
-        Stage stage = (Stage) btn1.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-                } 
+                    Stage stage = (Stage) btn1.getScene().getWindow();
+                    // do what you have to do
+                    stage.close();
+                }
             }
         });
-        
+
     }
 
     @FXML
@@ -145,18 +145,21 @@ public class ProfilePubController implements Initializable {
             public void handle(ActionEvent e) {
                 if (btn1.getText().equals("Fermer")) {
                     // get a handle to the stage
-        Stage stage = (Stage) btn1.getScene().getWindow();
-        // do what you have to do
-        stage.close();
+                    Stage stage = (Stage) btn1.getScene().getWindow();
+                    // do what you have to do
+                    stage.close();
                 } else {
-                      MessageCrud ms = new MessageCrud();
+                    MessageCrud ms = new MessageCrud();
                     ms.sendMessage(us.getIdUser(), us.getParam(), text.getText());
                     AlertMaker.showSimpleAlert("message envoyé!", null);
-                 
+
                 }
             }
         });
 
+        
+        
+        
     }
 
     @FXML
@@ -169,6 +172,72 @@ public class ProfilePubController implements Initializable {
 
     @FXML
     private void signalerHandler(ActionEvent event) {
+
+        UserSession us = UserSession.getInstance();
+        changingField.getChildren().clear();
+
+        TextField textField = new TextField();
+        textField.setPrefSize(200, 150);
+
+        text.setPrefSize(200, 150);
+        text.setPromptText("vous pouvez ecrire les details ici ");
+        text.setPadding(new Insets(20, 20, 20, 20));
+
+        text.setStyle("-fx-font-size: 2em; -fx-control-inner-background:#000000; -fx-font-family: Zapf Chancery; "
+                + "-fx-highlight-fill:#FFFF8D; -fx-highlight-text-fill: #000000; "
+                + "-fx-text-fill: #FFFF8D; ");
+        text.setWrapText(true);
+
+        changingField.getChildren().addAll(text);
+
+        btn2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                text.clear();
+                btn1.setText("Fermer");
+            }
+        });
+        text.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(final ObservableValue<? extends String> observable, final String oldValue, final String newValue) {
+                if (text.getText().isEmpty()) {
+                    btn1.setText("Fermer");
+                    btn2.setDisable(true);
+                } else {
+                    btn1.setText("submit");
+                    btn2.setDisable(false);
+                }
+
+            }
+        });
+        btn1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                if (btn1.getText().equals("Fermer")) {
+                    // get a handle to the stage
+                    Stage stage = (Stage) btn1.getScene().getWindow();
+                    // do what you have to do
+                    stage.close();
+                } else {
+//                      MessageCrud ms = new MessageCrud();
+//                    ms.sendMessage(us.getIdUser(), us.getParam(), text.getText());
+//                    AlertMaker.showSimpleAlert("message envoyé!", null);
+                    ReclamationCrud recCrud = new ReclamationCrud();
+                    Reclamation rec = new Reclamation();
+        UserSession us = UserSession.getInstance();
+        UserCrud uc = new UserCrud();
+                    rec.setUserReported(uc.getUsernameByIdu(us.getIdUser()));
+                    rec.setUserReported(uc.getUsernameByIdu(us.getParam()));
+                    System.out.println(us.getIdUser() +" *************"+us.getParam());
+                    rec.setDetails(text.getText());
+                   
+                    recCrud.ajouterReclamation(rec);
+                      AlertMaker.showSimpleAlert(null, "reclamation  envoyé!");
+
+                }
+            }
+        });
+
     }
 
     @FXML
