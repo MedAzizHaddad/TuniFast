@@ -256,6 +256,51 @@ public class AnnonceCrud {
         
     }
                 
-                
-                
+             public ArrayList<Annonce> getAllChauAnnonceById(int idU){
+    
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+           try {
+               DataBase db = new DataBase();
+                 String qu = "SELECT * FROM `annonce` WHERE `nbrPlaceDispo` > 0 AND `dateAnnonce` > now() AND`type`='chauffeur' AND `idUser` ="+idU+"";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           return res;
+    }      
+     public void updateAnnonce (Annonce an , int idA){
+     
+          try {
+            String requete2 = "UPDATE `annonce` SET `lieuDepart`=? ,`lieuArrivee`=? ,`nbrPlaceDispo`=? , `dateAnnonce`=? ,  " +
+" `heureAnnonce`= ? WHERE `idAnnonce` = "+idA+" ";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+            pst.setString(1, an.getLieuDepart());
+            pst.setString(2, an.getLieuArrivee());
+             pst.setInt(3, an.getNbrPlaceDispo());
+            pst.setString(4, an.getDateAnnonce());
+            pst.setString(5, an.getHeureAnnonce());                                 
+            pst.executeUpdate();
+            System.out.println("annoce mdifier");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+         
+         
+         
+         
+     }           
 }

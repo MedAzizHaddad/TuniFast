@@ -39,6 +39,9 @@ public class ToolbarController implements Initializable {
     private JFXToggleButton btnRole;
     @FXML
     private VBox rootPane;
+    @FXML
+    private JFXButton ConsAnn;
+   
 
     /**
      * Initializes the controller class.
@@ -79,7 +82,7 @@ public class ToolbarController implements Initializable {
 
     @FXML
     private void annoncer(ActionEvent event) {
-        System.out.println("chauf mode annoncer");
+     
     
        if (btnRole.isSelected()) {
                   TuniFastUtil.loadWindow(getClass().getResource("chauf/annoncerChauf.fxml"), "annoncer un traget", null);
@@ -93,6 +96,18 @@ public class ToolbarController implements Initializable {
     private void profile(ActionEvent event) {
         TuniFastUtil.loadWindow(getClass().getResource("profile/profilePers.fxml"), "Consulter reservation dans vos annoces", null);
 
+    }
+
+    @FXML
+    private void ConsAnn(ActionEvent event) {
+        
+            if (btnRole.isSelected()) {
+                  TuniFastUtil.loadWindow(getClass().getResource("chauf/readMesAnnChauf.fxml"), "annoncer un traget", null);
+
+        } else {
+           System.out.println("mode 2");
+        }
+            
     }
 
 }

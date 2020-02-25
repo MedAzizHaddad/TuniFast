@@ -26,7 +26,7 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="71.0" prefHeight="150.0" prefWidth="267.0" text="Mes annonces">
+      <JFXButton fx:id="ConsAnn" alignment="CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="71.0" onAction="#ConsAnn" prefHeight="150.0" prefWidth="267.0" text="Mes annonces">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>

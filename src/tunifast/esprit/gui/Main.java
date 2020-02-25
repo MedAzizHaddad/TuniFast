@@ -27,7 +27,7 @@ public class Main extends Application {
         System.out.println("hi");
         try {
           //  Parent root = FXMLLoader.load(getClass().getResource("startPage.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("startPage.fxml"));
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("Hello World!");

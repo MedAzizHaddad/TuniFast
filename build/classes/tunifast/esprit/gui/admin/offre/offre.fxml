@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="743.0" stylesheets="@../../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.admin.offre.OffreController">
+   <children>
+      <Pane layoutX="24.0" layoutY="52.0" prefHeight="352.0" prefWidth="263.0">
+         <children>
+            <Label layoutX="10.0" layoutY="14.0" text="Gestion Offres" textFill="#f9d342">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" text="User :" textFill="WHITE" />
+            <Label layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="64.0" text="Code :" textFill="WHITE" />
+            <Label layoutX="14.0" layoutY="194.0" prefHeight="17.0" prefWidth="64.0" text="Solde :" textFill="WHITE" />
+            <JFXTextField fx:id="code" focusColor="WHITE" layoutX="11.0" layoutY="151.0" prefHeight="25.0" prefWidth="227.0" unFocusColor="#f4d43c" />
+            <JFXTextField fx:id="solde" focusColor="WHITE" layoutX="11.0" layoutY="220.0" prefHeight="25.0" prefWidth="227.0" unFocusColor="#f4d43c" />
+            <JFXButton ellipsisString="" layoutX="13.0" layoutY="268.0" onAction="#Ajouter" prefHeight="51.0" prefWidth="64.0">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/addicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <JFXButton ellipsisString="" layoutX="89.0" layoutY="268.0" onAction="#Modifer" prefHeight="51.0" prefWidth="56.0">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/modificon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <JFXButton ellipsisString="" graphicTextGap="1.0" layoutX="161.0" layoutY="268.0" onAction="#supprimer" prefHeight="51.0" prefWidth="64.0" text="Button">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/removeicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <ComboBox fx:id="user" layoutX="11.0" layoutY="84.0" onMouseClicked="#userid" prefHeight="25.0" prefWidth="227.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="303.0" layoutY="52.0" prefHeight="352.0" prefWidth="426.0">
+         <children>
+            <TableView fx:id="tabview" layoutX="6.0" layoutY="53.0" onMouseClicked="#GetData" prefHeight="290.0" prefWidth="411.0">
+               <columns>
+                  <TableColumn fx:id="c1" prefWidth="53.0" text="id" />
+                  <TableColumn fx:id="c2" prefWidth="111.0" text="user" />
+                  <TableColumn fx:id="c3" prefWidth="144.0" text="CODE" />
+                  <TableColumn fx:id="c4" prefWidth="68.0" text="SOLDE" />
+               </columns>
+            </TableView>
+            <Label layoutX="14.0" layoutY="6.0" text="Les Offres" textFill="#f9d342">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="search" focusColor="WHITE" layoutX="182.0" layoutY="15.0" onKeyReleased="#Search" prefHeight="25.0" prefWidth="227.0" promptText="filtre" unFocusColor="#f4d43c" />
+         </children>
+      </Pane>
+      <JFXButton layoutX="372.0" layoutY="428.0" onAction="#semail" prefHeight="40.0" prefWidth="263.0" text="Send Mail" />
+   </children>
+</AnchorPane>
