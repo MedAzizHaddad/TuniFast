@@ -29,11 +29,26 @@ public class Annonce {
     private String heureAnnonce;
     private int nbrPlaceDispo;
     private int nbPlaceReser;
-    
+    private double prix ;
     
     private String dateAnnPost;
     //////////// 
     private String nomUser ;
+
+    public Annonce(User user, int idAnnonce, int idUser, String lieuDepart, String lieuArrivee, String dateAnnonce, String heureAnnonce, int nbrPlaceDispo, int nbPlaceReser, double prix, String dateAnnPost, String nomUser) {
+        this.user = user;
+        this.idAnnonce = idAnnonce;
+        this.idUser = idUser;
+        this.lieuDepart = lieuDepart;
+        this.lieuArrivee = lieuArrivee;
+        this.dateAnnonce = dateAnnonce;
+        this.heureAnnonce = heureAnnonce;
+        this.nbrPlaceDispo = nbrPlaceDispo;
+        this.nbPlaceReser = nbPlaceReser;
+        this.prix = prix;
+        this.dateAnnPost = dateAnnPost;
+        this.nomUser = nomUser;
+    }
 
     
     public Annonce(int idAnnonce, int idUser, String lieuDepart, String lieuArrivee, String dateAnnonce, String heureAnnonce, int nbrPlaceDispo, int nbPlaceReser, String dateAnnPost, String nomUser) {
@@ -78,6 +93,10 @@ public class Annonce {
 
     public User getUser() {
         return user;
+    }
+
+    public double getPrix() {
+        return prix;
     }
 
     
@@ -127,6 +146,10 @@ public class Annonce {
 
     public void setDateAnnPost(String dateAnnPost) {
         this.dateAnnPost = dateAnnPost;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 
     public void setUser(User user) {

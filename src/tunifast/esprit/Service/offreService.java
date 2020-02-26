@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -84,6 +86,30 @@ public class offreService implements Iservice<offre> {
             float solode = rs.getFloat(4);
             offre a = new offre(id, user, code, solode);
             AL.add(a);
+        }
+        return AL;
+    }
+    
+    
+     public List<offre> Search2(String Text)  {
+         List<offre> AL = new ArrayList<>();
+        try {
+            
+            ste = con.createStatement();
+            String Sqlrequt = "select * from offre where idoff LIKE '%" + Text + "%' or code LIKE '%" + Text + "%'";
+            ResultSet rs = ste.executeQuery(Sqlrequt);
+            
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                int user = rs.getInt(2);
+                int code = rs.getInt(3);
+                float solode = rs.getFloat(4);
+                offre a = new offre(id, user, code, solode);
+                AL.add(a);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(offreService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return AL;
     }

@@ -6,15 +6,22 @@
 package tunifast.esprit.gui;
 
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Service.UserCrud;
+import tunifast.esprit.Utils.DataBase;
 import tunifast.esprit.Utils.TuniFastUtil;
 import tunifast.esprit.gui.alert.AlertMaker;
 
@@ -77,8 +84,23 @@ public class InscriptionController implements Initializable {
 
     @FXML
     private void cancel(ActionEvent event) {
-             Stage stage = (Stage) nom.getScene().getWindow();
-        stage.close();
+        try {
+          //  Parent root = FXMLLoader.load(getClass().getResource("startPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("startPage.fxml"));
+            Scene scene = new Scene(root);
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("Hello World!");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            // to instanciate the db since the start of the app nad thread it to prevent the app from slow launchign
+           
+            new Thread(() -> {
+                DataBase.getInstance();
+            }).start();
+            //      root.requestFocus();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public boolean testChamps() {

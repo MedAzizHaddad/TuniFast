@@ -163,6 +163,9 @@ public class AnnonceListController implements Initializable {
         UserSession us = new UserSession().getInstance();
         ReservationCrud res = new ReservationCrud();
         Annonce selectedAn = reservationTable.getSelectionModel().getSelectedItem();
+        //System.out.println("annoonnnccee" + selectedAn);
+        TuniFastUtil.parSession(selectedAn.getIdAnnonce());
+      
         //  System.out.println(selectedAn);
         if (selectedAn == null) {
             AlertMaker.showSimpleAlert("aucune annonce selectionné !! ", "veuillez selecionner une annonce");
@@ -188,10 +191,14 @@ public class AnnonceListController implements Initializable {
                     alert.showAndWait();
 
                 } else {
-                    System.out.println("hi");
-                    PasServices.reserver(selectedAn.getIdAnnonce(), us.getIdUser(), Integer.parseInt(result.get()));
-                    JFXButton btn = new JFXButton("Okay!");
-                    AlertMaker.showMaterialDialog0(root, Arrays.asList(btn), "reservation bien ajouté", null);
+                 //   System.out.println(result.get());
+                TuniFastUtil.parSession2(Integer.parseInt(result.get()));
+   TuniFastUtil.loadWindow(getClass().getResource("payment.fxml"), "payment", null);
+
+               
+//                    PasServices.reserver(selectedAn.getIdAnnonce(), us.getIdUser(), Integer.parseInt(result.get()));
+//                    JFXButton btn = new JFXButton("Okay!");
+//                    AlertMaker.showMaterialDialog0(root, Arrays.asList(btn), "reservation bien ajouté", null);
                 }
 
             }

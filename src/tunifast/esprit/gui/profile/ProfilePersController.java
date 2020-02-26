@@ -74,6 +74,8 @@ public class ProfilePersController implements Initializable {
     private Pane target;
     @FXML
     private Tab tab1;
+    @FXML
+    private Tab profile;
    public void loadFxml(ActionEvent event) {
         try {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("reclamation/userListReclamation.fxml"));

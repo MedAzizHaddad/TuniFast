@@ -98,4 +98,29 @@ public class PromotionService implements Iservice<Promotion> {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }
+
+public List<Promotion> getAllPromos() {
+    
+    List<Promotion> AL = new ArrayList<>();
+    
+        try {
+            ste = con.createStatement();
+            
+            ResultSet rs = ste.executeQuery("select * from promotion");
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                Date DaD = rs.getDate(2);
+                Date DaF = rs.getDate(3);
+                float Reduction = rs.getFloat(4);
+                Promotion a = new Promotion(id, DaD, DaF, Reduction);
+                
+                AL.add(a);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PromotionService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    return AL;
+    }
+
 }

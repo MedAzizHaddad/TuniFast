@@ -143,6 +143,41 @@ public class AnnonceCrud {
            return res;
                } 
          
+       public ArrayList<Annonce> ReadAnnonce2(int idan){
+         
+                  ArrayList<Annonce> res = new ArrayList<Annonce>();
+
+                          
+           try {
+               DataBase db = new DataBase();
+               String qu = "SELECT * FROM annonce INNER JOIN user ON annonce.idUser = user.idUser WHERE annonce.idAnnonce ="+idan+"";
+               ResultSet rs = db.execQuery(qu);
+               while (rs.next())
+               { Annonce a = new Annonce();
+               User u = new User();
+               a.setIdAnnonce(rs.getInt("idAnnonce"));                   //Soit par label soit par indice 
+                a.setIdUser(rs.getInt("idUser"));
+                a.setLieuDepart(rs.getString("lieuDepart"));
+                a.setLieuArrivee(rs.getString("lieuArrivee"));
+                a.setDateAnnonce(rs.getString("dateAnnonce"));
+                a.setHeureAnnonce(rs.getString("heureAnnonce"));
+                a.setNbrPlaceDispo(rs.getInt("nbrPlaceDispo"));
+                a.setNbPlaceReser(rs.getInt("NbPlaceReser"));
+                a.setNomUser(rs.getString("nom"));
+                a.setDateAnnPost(rs.getString("dateAnnPost"));
+                u.setNom(rs.getString("nom"));
+                a.setUser(u);
+                a.setPrix(rs.getDouble("prix"));
+               res.add(a);
+               
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(AnnonceCrud.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           return res;
+               } 
+     
            public ArrayList<Annonce> ReadAnnonceChauf(int iduser){
          
                   ArrayList<Annonce> res = new ArrayList<Annonce>();

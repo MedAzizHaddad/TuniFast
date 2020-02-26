@@ -18,6 +18,7 @@ public final class UserSession {
     private int idUser;
     private String  role;
     private int param ;
+    private int param2 ;
     private Stage s ;
     private UserSession(int idUser, String  role) {
         this.idUser = idUser;
@@ -27,6 +28,13 @@ public final class UserSession {
         this.idUser = idUser;
         this.role = role;
         this.param = param ;
+    }
+     
+        private UserSession(int idUser, String  role, int param, int param2) {
+        this.idUser = idUser;
+        this.role = role;
+        this.param = param ;
+        this.param2 = param2 ;
     }
 
     public UserSession() {
@@ -50,6 +58,11 @@ public final class UserSession {
         instance = new UserSession(idUser,role,param);
         return instance;
     }
+  
+    public static UserSession getInstance(int idUser , String  role , int param , int param2) {
+        instance = new UserSession(idUser,role,param,param2);
+        return instance;
+    }
 //--------------------------------------------------------------------
     public UserSession(Stage s) {
         this.s = s;
@@ -66,6 +79,10 @@ public final class UserSession {
 
     public String getRole() {
         return role;
+    }
+
+    public int getParam2() {
+        return param2;
     }
 
     public int getParam() {

@@ -104,12 +104,12 @@ public class AcceuilController implements Initializable {
                 AnnonceCrud an = new AnnonceCrud();
                 res = an.getLastAnnoncePas();
 
-                txt1.setText(res.get(0).getUser().getUsername());
-                txt2.setText("looking for ride");
-                txt3.setText(res.get(0).getLieuDepart());
-                txt4.setText(res.get(0).getLieuArrivee());
-                txt5.setText(res.get(0).getDateAnnonce());
-                txt6.setText(res.get(0).getHeureAnnonce());
+//                txt1.setText(res.get(0).getUser().getUsername());
+//                txt2.setText("looking for ride");
+//                txt3.setText(res.get(0).getLieuDepart());
+//                txt4.setText(res.get(0).getLieuArrivee());
+//                txt5.setText(res.get(0).getDateAnnonce());
+//                txt6.setText(res.get(0).getHeureAnnonce());
 
                 ArrayList<Annonce> res1 = new ArrayList<Annonce>();
                 AnnonceCrud an1 = new AnnonceCrud();

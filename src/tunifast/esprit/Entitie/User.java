@@ -26,9 +26,26 @@ public class User {
     private String username; 
     private String etat ;
 
+    private Double compte ;
     public User() {
     }
 
+    public User(int idUser, String nom, String prenom, String mail, int numTel, String sexe, String role, String password, String username, String etat, Double compte) {
+        this.idUser = idUser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.numTel = numTel;
+        this.sexe = sexe;
+        this.role = role;
+        this.password = password;
+        this.username = username;
+        this.etat = etat;
+        this.compte = compte;
+    }
+
+    
+    
     public User(int idUser, String nom, String prenom, String mail, int numTel, String sexe, String role, String password, String username, String etat) {
         this.idUser = idUser;
         this.nom = nom;
@@ -85,6 +102,10 @@ public class User {
         return etat;
     }
 
+    public Double getCompte() {
+        return compte;
+    }
+
     public int getIdUser() {
         return idUser;
     }
@@ -115,6 +136,10 @@ public class User {
 
     public void setEtat(String etat) {
         this.etat = etat;
+    }
+
+    public void setCompte(Double compte) {
+        this.compte = compte;
     }
 
     public String getPassword() {

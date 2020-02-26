@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="603.0" stylesheets="@../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.StartPageController">
+   <children>
+      <VBox layoutX="240.0" layoutY="115.0" prefHeight="532.0" prefWidth="757.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="66.0" prefWidth="611.0">
+               <children>
+                  <AnchorPane prefHeight="73.0" prefWidth="611.0">
+                     <children>
+                        <JFXButton fx:id="btnLogin" layoutX="23.0" layoutY="12.0" onAction="#login" prefHeight="43.0" prefWidth="143.0" text="se connecter" />
+                        <JFXButton layoutX="427.0" layoutY="12.0" onAction="#inscription" prefHeight="43.0" prefWidth="184.0" text="Inscription" />
+                        <Text fill="#b6cd51" layoutX="193.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas un compte ?">
+                           <font>
+                              <Font name="Copperplate Gothic Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#b6cd51" layoutX="232.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscrivez-vous">
+                           <font>
+                              <Font name="Copperplate Gothic Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#b6cd51" layoutX="216.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C'est facile et rapide">
+                           <font>
+                              <Font name="Copperplate Gothic Bold" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="386.0" prefWidth="611.0">
+               <children>
+                  <ImageView fitHeight="318.0" fitWidth="611.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/logo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefHeight="160.0" prefWidth="611.0" />
+            <ImageView fitHeight="192.0" fitWidth="493.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resources/images/123.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

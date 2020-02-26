@@ -132,6 +132,18 @@ public class TuniFastUtil {
 
     }
     
+       public static void parSession2(int par) {
+        UserSession us = new UserSession().getInstance();
+
+        int x = us.getIdUser();
+        String y = us.getRole();
+        int z = us.getParam();
+              int a = par ;  
+
+        UserSession us1 = new UserSession().getInstance(x, y, z,a);
+
+    }
+    
     public static boolean testUnicité(String tab, String col, String val) {
         UserCrud prof = new UserCrud();
         boolean result = false;

@@ -1,59 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="603.0" stylesheets="@../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.StartPageController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #292826;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.StartPageController">
    <children>
-      <VBox layoutX="240.0" layoutY="115.0" prefHeight="532.0" prefWidth="757.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="752.0" layoutY="26.0" prefHeight="667.0" prefWidth="505.0" style="-fx-background-color: #F9D342;">
          <children>
-            <HBox prefHeight="66.0" prefWidth="611.0">
+            <VBox prefHeight="679.0" prefWidth="513.0">
                <children>
-                  <AnchorPane prefHeight="73.0" prefWidth="611.0">
+                  <AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="559.0" prefWidth="513.0" style="-fx-background-color: #2A2E37;">
                      <children>
-                        <JFXButton fx:id="btnLogin" layoutX="23.0" layoutY="12.0" onAction="#login" prefHeight="43.0" prefWidth="143.0" text="se connecter" />
-                        <JFXButton layoutX="427.0" layoutY="12.0" onAction="#inscription" prefHeight="43.0" prefWidth="184.0" text="Inscription" />
-                        <Text fill="#b6cd51" layoutX="193.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas un compte ?">
-                           <font>
-                              <Font name="Copperplate Gothic Bold" size="12.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#b6cd51" layoutX="232.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inscrivez-vous">
-                           <font>
-                              <Font name="Copperplate Gothic Bold" size="12.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#b6cd51" layoutX="216.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C'est facile et rapide">
-                           <font>
-                              <Font name="Copperplate Gothic Bold" size="12.0" />
-                           </font>
-                        </Text>
+                        <VBox prefHeight="479.0" prefWidth="524.0">
+                           <children>
+                              <AnchorPane fx:id="espace" prefHeight="480.0" prefWidth="513.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <stylesheets>
+                        <URL value="@../../../resources/design.css" />
+                        <URL value="@../../../resources/design.css" />
+                     </stylesheets>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="116.0" prefWidth="513.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="500.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas un compte ? Inscrivez-vous" wrappingWidth="249.99998474121094">
+                                 <font>
+                                    <Font name="Yu Gothic Regular" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="130.0" top="20.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="C'est facile et rapide">
+                                 <font>
+                                    <Font name="Yu Gothic Regular" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="130.0" top="20.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Button mnemonicParsing="false" onAction="#create" prefWidth="227.0" style="-fx-background-color: #FFFFFF;" text="Créer un compte">
+                                 <font>
+                                    <Font name="Yu Gothic Regular" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="130.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
                </children>
-            </HBox>
-            <HBox prefHeight="386.0" prefWidth="611.0">
-               <children>
-                  <ImageView fitHeight="318.0" fitWidth="611.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../resources/logo.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <HBox prefHeight="160.0" prefWidth="611.0" />
-            <ImageView fitHeight="192.0" fitWidth="493.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../resources/images/123.png" />
-               </image>
-            </ImageView>
+            </VBox>
          </children>
-      </VBox>
+      </AnchorPane>
+      <ImageView fx:id="image" fitHeight="516.0" fitWidth="689.0" layoutX="36.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/images/123.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="72.0" layoutY="116.0" text="Welcome to TuniFast" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic Regular" size="63.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

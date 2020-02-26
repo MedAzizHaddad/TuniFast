@@ -74,18 +74,19 @@ public class LoginController implements Initializable {
             int id = UserTest.loginTest(email.getText(), pw.getText()).get(0).getIdUser();
             String role = UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole();
             UserSession us = UserSession.getInstance(id, role);
-            closeStage();
+                 Stage stage = (Stage) pw.getScene().getWindow();
+            stage.close();
             loadMain1();
         } else if (UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole().equals("admin")) {
             int id = UserTest.loginTest(email.getText(), pw.getText()).get(0).getIdUser();
             String role = UserTest.loginTest(email.getText(), pw.getText()).get(0).getRole();
             UserSession us = UserSession.getInstance(id, role);
-
+        Stage stage = (Stage) pw.getScene().getWindow();
+            stage.close();
             loadMain3();
             
         }
-        Stage stage = (Stage) pw.getScene().getWindow();
-            stage.close();
+
     }
 
     @FXML
@@ -163,7 +164,7 @@ public class LoginController implements Initializable {
                 UserCrud userC = new UserCrud();
                 userC.ModifierMdpUserInterfaceee(str, x);
             } catch (Exception ex) {
-                Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StartPageController0.class.getName()).log(Level.SEVERE, null, ex);
             }
             JFXButton btn = new JFXButton("Okay!");
             AlertMaker.showMaterialDialog0(root, Arrays.asList(btn), "succée !!", "votre mot de passe est reinitialisé et un email est envoyé ");

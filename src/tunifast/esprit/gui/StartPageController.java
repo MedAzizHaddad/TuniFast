@@ -5,8 +5,6 @@
  */
 package tunifast.esprit.gui;
 
-import com.jfoenix.controls.JFXButton;
-import tunifast.esprit.Entitie.UserSession;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,10 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -29,50 +26,33 @@ import javafx.stage.StageStyle;
 public class StartPageController implements Initializable {
 
     @FXML
-    private JFXButton btnLogin;
+    private AnchorPane anchorpane;
+    @FXML
+    private AnchorPane espace;
+    @FXML
+    private ImageView image;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        try {
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("login.fxml"));
+            espace.getChildren().add(newLoadedPane);
+        } catch (IOException ex) {
+            Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
-    private void login(ActionEvent event) {
-        
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
-            Parent parent = loader.load();
-            Stage stage = null;
-                stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("login");
-            stage.setScene(new Scene(parent));
-            stage.show();
-            //setStageIcon(stage);
+    private void create(ActionEvent event) {
+              try {
+                  espace.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("inscription.fxml"));
+            espace.getChildren().add(newLoadedPane);
         } catch (IOException ex) {
-            Logger.getLogger(AcceuilController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-    }
-    
-
-    @FXML
-    private void inscription(ActionEvent event) {
-        
-        
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("inscription.fxml"));
-            Parent parent = loader.load();
-            Stage stage = null;
-                stage = new Stage(StageStyle.TRANSPARENT);
-            stage.setTitle("inscription");
-            stage.setScene(new Scene(parent));
-            stage.show();
-            //setStageIcon(stage);
-        } catch (IOException ex) {
-            Logger.getLogger(AcceuilController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

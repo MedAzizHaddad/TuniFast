@@ -5,18 +5,12 @@
  */
 package tunifast.esprit.Service;
 
-import java.awt.AWTException;
-import java.awt.SystemTray;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import tunifast.esprit.Entitie.Reclamation;
-import tunifast.esprit.Entitie.Reservation;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Utils.DataBase;
 
@@ -220,6 +214,8 @@ public class UserCrud {
                 u.setUsername(rs.getString("username"));
                 u.setSexe(rs.getString("sexe"));
                 u.setRole(rs.getString("role"));
+                u.setCompte(rs.getDouble("compte"));
+                u.setEtat(rs.getString("etat"));
 
             }
 
@@ -243,5 +239,35 @@ public class UserCrud {
         
     }
     
-   
+    public double getCompteById(int id){
+         User u = new User();
+
+        try {
+            String requete2 = "SELECT compte FROM user WHERE idUser = '" + id + "' ";
+            PreparedStatement pst = cnx.prepareStatement(requete2);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                u.setCompte(rs.getDouble("compte"));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return u.getCompte();
+    }
+    public void ModifierMdp(int id, String mdpN) {
+        try {
+            String requetee = "UPDATE user SET password=? WHERE idUser=?";
+            PreparedStatement pstt = cnx.prepareStatement(requetee);
+            pstt.setString(1, mdpN);
+            pstt.setInt(2, id);
+            pstt.executeUpdate();
+
+            System.out.println("User modifié !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

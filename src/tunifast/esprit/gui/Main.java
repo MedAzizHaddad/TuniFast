@@ -24,7 +24,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) { //pas/annonceList.fxml
-        System.out.println("hi");
+      //  System.out.println("hi");
         try {
           //  Parent root = FXMLLoader.load(getClass().getResource("startPage.fxml"));
             Parent root = FXMLLoader.load(getClass().getResource("startPage.fxml"));
