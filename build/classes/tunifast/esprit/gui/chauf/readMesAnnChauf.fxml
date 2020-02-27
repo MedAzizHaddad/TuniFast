@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.MenuItem?>
@@ -35,7 +36,10 @@
                               <JFXTextField fx:id="filterField" prefHeight="25.0" prefWidth="363.0" promptText="filtrer votre recherche" />
                            </children>
                         </StackPane>
-                        <StackPane prefHeight="150.0" prefWidth="200.0" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton onAction="#imprimer" text="imprimer" />
+                           </children></StackPane>
                      </children>
                   </HBox>
                </children>

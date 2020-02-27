@@ -20,6 +20,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -198,6 +199,16 @@ UserSession us = UserSession.getInstance();
         
         }
          AlertMaker.showSimpleAlert("succée", "annonce annulé");
+    }
+
+    @FXML
+    private void imprimer(ActionEvent event) {
+        System.out.println(" Wait few seconds ...");
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if (printerJob.printPage(annonceTable)) {
+            printerJob.endJob();
+            System.out.println("printed");
+        }
     }
     
 }

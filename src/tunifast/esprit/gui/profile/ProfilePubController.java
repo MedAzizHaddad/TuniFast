@@ -17,10 +17,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
+import org.controlsfx.control.Rating;
 import tunifast.esprit.Entitie.Reclamation;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Entitie.UserSession;
@@ -170,6 +174,12 @@ public class ProfilePubController implements Initializable {
 
     @FXML
     private void noterHandler(ActionEvent event) {
+        UserSession us = UserSession.getInstance();
+        changingField.getChildren().clear();
+        Rating rate = new Rating();
+        rate.setRating(3);
+        rate.setPadding(new Insets(53, 20, 53, 20));
+        changingField.getChildren().addAll(rate);
     }
 
     @FXML
@@ -234,6 +244,17 @@ public class ProfilePubController implements Initializable {
                     rec.setDetails(text.getText());
                    
                     recCrud.ajouterReclamation(rec);
+                    
+                 Notifications notificationBuilder = Notifications.create()
+                    .title("Congratulations ")
+                    .text("You've successfully created your reclamation")
+                    .graphic(new ImageView())
+                    //.hideAfter(Duration.seconds(5)) eyyy la7dha njarbou
+                    .position(Pos.TOP_RIGHT);
+        
+            notificationBuilder.darkStyle();
+            notificationBuilder.show();
+                      AlertMaker.showSimpleAlert(null, "reclamation  envoyé!");
                       AlertMaker.showSimpleAlert(null, "reclamation  envoyé!");
 
                 }

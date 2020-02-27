@@ -278,7 +278,7 @@ public class AnnonceCrud {
    
     public void ajoutAnnonce (String dep , String arr , LocalDate date , LocalTime heure  , int place, int idUser){
         
-        System.out.println(date + "hii " + heure);
+      //  System.out.println(date + "hii " + heure);
           try {
             String requete2 = "INSERT INTO `annonce`( `lieuDepart` , `lieuArrivee` , `dateAnnonce`, `heureAnnonce` , `nbrPlaceDispo` , `idUser` , `dateAnnPost` , `type`)"
                     + " VALUES ('"+dep+"','"+arr+"' ,'"+date+"' , '"+heure+"',"+place+"," +idUser+" , now(), 'chauffeur')";

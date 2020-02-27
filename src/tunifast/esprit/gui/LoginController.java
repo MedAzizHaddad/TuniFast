@@ -108,7 +108,7 @@ public class LoginController implements Initializable {
             Parent parent = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("TuniFast");
-            stage.setScene(new Scene(parent));
+            stage.setScene(new Scene(parent , 1200 , 700 ));
             stage.setResizable(false);
             stage.show();
             //**.setStageIcon(stage);
@@ -124,7 +124,7 @@ public class LoginController implements Initializable {
             Parent parent = FXMLLoader.load(getClass().getResource("acceuilMode2.fxml"));
             Stage stage = new Stage(StageStyle.TRANSPARENT);
             stage.setTitle("TuniFast");
-            stage.setScene(new Scene(parent, 1000, 700));
+            stage.setScene(new Scene(parent, 1200, 800));
             stage.show();
             //**.setStageIcon(stage);
         } catch (IOException ex) {
