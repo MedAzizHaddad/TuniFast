@@ -140,21 +140,16 @@ public class AnnonceListController implements Initializable {
             Annonce a = new Annonce(idAnnonce, idUser, lieuDepart, lieuArrivee, dateAnnonce, heureAnnonce, nbrPlaceDispo, nbPlaceReser);
             masterData.add(a);
         }
-
     }
-
+    
     private void changeTableView(int index, int limit) {
-
         int fromIndex = index * limit;
         int toIndex = Math.min(fromIndex + limit, masterData.size());
-
         int minIndex = Math.min(toIndex, filteredData.size());
         SortedList<Annonce> sortedData = new SortedList<>(
                 FXCollections.observableArrayList(filteredData.subList(Math.min(fromIndex, minIndex), minIndex)));
         sortedData.comparatorProperty().bind(reservationTable.comparatorProperty());
-
         reservationTable.setItems(sortedData);
-
     }
 
     @FXML

@@ -133,7 +133,7 @@
                   </JFXTextField>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <JFXButton fx:id="btnUpgrade" prefHeight="36.0" prefWidth="92.0" text="upgrade">
+                        <JFXButton fx:id="btnUpgrade" onAction="#callUpgrade" prefHeight="36.0" prefWidth="92.0" text="upgrade">
                            <padding>
                               <Insets left="10.0" />
                            </padding>

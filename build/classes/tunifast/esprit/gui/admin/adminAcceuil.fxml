@@ -15,8 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="874.0" stylesheets="@../../../../resources/design.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tunifast.esprit.gui.admin.AdminAcceuilController">
+<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="874.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.admin.AdminAcceuilController">
    <children>
       <StackPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -85,6 +84,11 @@
                         </AnchorPane>
                     </content>
                   </Tab>
+                  <Tab text="demandes d'upgrade" >
+                   <content>
+                    <fx:include source="upgrade/listUpgrade.fxml" />   
+                    </content>
+                </Tab>
                </tabs>
             </JFXTabPane>
          </children>

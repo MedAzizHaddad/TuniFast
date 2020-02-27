@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Entitie.UserSession;
 import tunifast.esprit.Service.UserCrud;
+import tunifast.esprit.Utils.TuniFastUtil;
 import tunifast.esprit.gui.alert.AlertMaker;
 
 /**
@@ -92,6 +93,11 @@ public class ProfileController implements Initializable {
                 AlertMaker.showSimpleAlert("succé","mot de passe modifié");
             }
         }
+    }
+
+    @FXML
+    private void callUpgrade(ActionEvent event) {
+       TuniFastUtil.loadWindowMode1(getClass().getResource("upgrade/upgradeForm.fxml"), "formulade", null);
     }
 
 }
