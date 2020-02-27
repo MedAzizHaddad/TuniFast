@@ -8,33 +8,93 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TuniFast0.jar" size="771237" download="eager" />
+    <jar href="TuniFast0.jar" size="780064" download="eager" />
+    <jar href="lib\async-http-client-2.5.2.jar" size="429091" download="eager" />
+    <jar href="lib\async-http-client-backend-future_2.11-1.2.3.jar" size="5065" download="eager" />
+    <jar href="lib\async-http-client-backend_2.11-1.2.3.jar" size="49077" download="eager" />
+    <jar href="lib\async-http-client-netty-utils-2.5.2.jar" size="9255" download="eager" />
+    <jar href="lib\atlis-location-base-1.0.0.jar" size="29341" download="eager" />
     <jar href="lib\boxable-1.5-RC.jar" size="58530" download="eager" />
+    <jar href="lib\cats-core_2.11-1.5.0.jar" size="5664747" download="eager" />
+    <jar href="lib\cats-kernel_2.11-1.5.0.jar" size="3204442" download="eager" />
+    <jar href="lib\cats-macros_2.11-1.5.0.jar" size="5346" download="eager" />
+    <jar href="lib\circe-core_2.11-0.11.0.jar" size="987006" download="eager" />
+    <jar href="lib\circe-generic-extras_2.11-0.11.0.jar" size="151444" download="eager" />
+    <jar href="lib\circe-generic_2.11-0.11.0.jar" size="179309" download="eager" />
+    <jar href="lib\circe-jawn_2.11-0.9.3.jar" size="12027" download="eager" />
+    <jar href="lib\circe-numbers_2.11-0.11.0.jar" size="12850" download="eager" />
+    <jar href="lib\circe-parser_2.11-0.9.3.jar" size="2728" download="eager" />
+    <jar href="lib\circe_2.11-1.2.3.jar" size="4782" download="eager" />
     <jar href="lib\commons-codec-1.11.jar" size="335042" download="eager" />
+    <jar href="lib\commons-codec-1.2.jar" size="30085" download="eager" />
     <jar href="lib\commons-csv-1.4.jar" size="39978" download="eager" />
+    <jar href="lib\commons-httpclient-3.1.jar" size="305001" download="eager" />
     <jar href="lib\commons-lang3-3.9.jar" size="503880" download="eager" />
+    <jar href="lib\commons-logging-1.0.4.jar" size="38015" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
     <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\converter-gson-2.5.0.jar" size="6196" download="eager" />
+    <jar href="lib\core_2.11-1.2.3.jar" size="456336" download="eager" />
     <jar href="lib\derby.jar" size="3224708" download="eager" />
     <jar href="lib\derbyclient.jar" size="590087" download="eager" />
     <jar href="lib\fontawesomefx-commons-8.15.jar" size="20957" download="eager" />
     <jar href="lib\fontawesomefx-fontawesome-4.7.0-5.jar" size="136891" download="eager" />
     <jar href="lib\fontbox-2.0.4.jar" size="1477887" download="eager" />
+    <jar href="lib\geocoder-java-0.16.jar" size="29181" download="eager" />
+    <jar href="lib\gson-2.2.4.jar" size="190432" download="eager" />
     <jar href="lib\gson-2.8.1.jar" size="232620" download="eager" />
+    <jar href="lib\gson-2.8.2.jar" size="232932" download="eager" />
+    <jar href="lib\gson-2.8.6.jar" size="240255" download="eager" />
     <jar href="lib\guava-21.0.jar" size="2521113" download="eager" />
     <jar href="lib\itext-2.1.7.jar" size="1130070" download="eager" />
+    <jar href="lib\javax.activation-1.2.0.jar" size="78030" download="eager" />
     <jar href="lib\javax.mail-1.6.1.jar" size="654100" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\jawn-parser_2.11-0.11.1.jar" size="87405" download="eager" />
     <jar href="lib\jfoenix-8.0.4.jar" size="2487326" download="eager" />
+    <jar href="lib\jxmaps-1.3.2.jar" size="872084" download="eager" />
+    <jar href="lib\jxmaps-linux32-1.3.2.jar" size="82820918" download="eager" />
+    <jar href="lib\jxmaps-linux64-1.3.2.jar" size="83058231" download="eager" />
+    <jar href="lib\jxmaps-mac-1.3.2.jar" size="62342388" download="eager" />
+    <jar href="lib\jxmaps-win-1.3.2.jar" size="50757486" download="eager" />
+    <jar href="lib\jxmapsdemo.jar" size="1108850" download="eager" />
+    <jar href="lib\log4j-1.2.17.jar" size="489884" download="eager" />
     <jar href="lib\log4j-api-2.11.0.jar" size="263109" download="eager" />
     <jar href="lib\log4j-core-2.11.0.jar" size="1600780" download="eager" />
+    <jar href="lib\machinist_2.11-0.6.6.jar" size="34603" download="eager" />
+    <jar href="lib\macro-compat_2.11-1.1.1.jar" size="3142" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\netty-buffer-4.1.27.Final.jar" size="272618" download="eager" />
+    <jar href="lib\netty-codec-4.1.27.Final.jar" size="316412" download="eager" />
+    <jar href="lib\netty-codec-dns-4.1.27.Final.jar" size="54863" download="eager" />
+    <jar href="lib\netty-codec-http-4.1.27.Final.jar" size="563124" download="eager" />
+    <jar href="lib\netty-codec-socks-4.1.27.Final.jar" size="119361" download="eager" />
+    <jar href="lib\netty-common-4.1.27.Final.jar" size="576945" download="eager" />
+    <jar href="lib\netty-handler-4.1.27.Final.jar" size="387502" download="eager" />
+    <jar href="lib\netty-handler-proxy-4.1.27.Final.jar" size="21277" download="eager" />
+    <jar href="lib\netty-reactive-streams-2.0.0.jar" size="20938" download="eager" />
+    <jar href="lib\netty-resolver-4.1.27.Final.jar" size="32276" download="eager" />
+    <jar href="lib\netty-resolver-dns-4.1.27.Final.jar" size="105956" download="eager" />
+    <jar href="lib\netty-transport-4.1.27.Final.jar" size="459472" download="eager" />
+    <jar href="lib\netty-transport-native-epoll-4.1.27.Final-linux-x86_64.jar" size="141351" download="eager" />
+    <jar href="lib\netty-transport-native-unix-common-4.1.27.Final.jar" size="31155" download="eager" />
+    <jar href="lib\nominatim-api-1.0.0.jar" size="28143" download="eager" />
+    <jar href="lib\okhttp-3.12.0.jar" size="422786" download="eager" />
+    <jar href="lib\okio-1.15.0.jar" size="88732" download="eager" />
     <jar href="lib\pdf-js-0.5.5.jar" size="7042426" download="eager" />
     <jar href="lib\pdf.jar" size="4467" download="eager" />
     <jar href="lib\pdfbox-2.0.3.jar" size="2441253" download="eager" />
     <jar href="lib\poi-3.7.jar" size="1675036" download="eager" />
+    <jar href="lib\reactive-streams-1.0.2.jar" size="2097" download="eager" />
+    <jar href="lib\retrofit-2.5.0.jar" size="108289" download="eager" />
+    <jar href="lib\scala-library-2.11.8.jar" size="5744974" download="eager" />
+    <jar href="lib\scala-opencage-geocoder_2.11-1.1.1.jar" size="542085" download="eager" />
+    <jar href="lib\scala-reflect-2.11.12.jar" size="4623075" download="eager" />
+    <jar href="lib\shapeless_2.11-2.3.3.jar" size="3941691" download="eager" />
     <jar href="lib\slf4j-api-1.7.25.jar" size="41203" download="eager" />
+    <jar href="lib\slf4j-api-1.7.7.jar" size="29257" download="eager" />
     <jar href="lib\slf4j-simple-1.7.25.jar" size="15257" download="eager" />
+    <jar href="lib\w3w-java-wrapper-3.1.1.jar" size="45091" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TuniFast0" >
     <param name="requiredFXVersion" value="8.0+"/>

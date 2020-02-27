@@ -35,7 +35,7 @@ public class statserv {
 
     public void remplir() {
         try {
-            String requete = "INSERT INTO stat (idUser) SELECT (idUser) FROM user WHERE role = chauffeur ";
+            String requete = "INSERT INTO stat (idUser) SELECT (idUser) FROM user ";
             PreparedStatement pst = cn2.prepareStatement(requete);
             pst.executeUpdate();
             System.out.println("remplissage avec succes");
@@ -67,4 +67,27 @@ public class statserv {
 
         return act;
     }
+    
+    public double getRateById(int id){
+       // SELECT`moyRate`FROM stat WHERE `idUser` = 
+         Double d = null ;
+        try {
+            String requete3 = "SELECT`moyRate`FROM stat WHERE `idUser` = "+id+"";
+            PreparedStatement pst2 = cn2.prepareStatement(requete3);
+            ResultSet rs = pst2.executeQuery();
+            
+          
+          while (rs.next()) {
+                d = rs.getDouble("moyRate");
+                System.out.println("aazii" + d);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return d;
+  
+    }
+    
 }

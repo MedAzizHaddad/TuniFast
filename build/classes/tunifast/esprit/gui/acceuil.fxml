@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -12,7 +14,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -66,12 +71,34 @@
                            <content>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <HBox prefHeight="452.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <GridPane prefHeight="452.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
                                        <children>
-                                          <VBox prefHeight="452.0" prefWidth="477.0" />
-                                          <VBox prefHeight="200.0" prefWidth="500.0" />
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                             <children>
+                                                <Label layoutX="33.0" layoutY="20.0" text="demander compte chauffeur" textFill="#94c270">
+                                                   <font>
+                                                      <Font name="Copperplate Gothic Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXButton layoutX="106.0" layoutY="57.0" onAction="#upgrade" prefHeight="43.0" prefWidth="162.0" text="upgrade" />
+                                                <Label layoutX="59.0" layoutY="113.0" text="les dernières actualités " textFill="#94c270">
+                                                   <font>
+                                                      <Font name="Copperplate Gothic Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXButton layoutX="106.0" layoutY="155.0" onAction="#actualité" prefHeight="43.0" prefWidth="162.0" text="actualité" />
+                                             </children>
+                                          </AnchorPane>
                                        </children>
-                                    </HBox>
+                                    </GridPane>
                                  </children></AnchorPane>
                            </content>
                         </Tab>

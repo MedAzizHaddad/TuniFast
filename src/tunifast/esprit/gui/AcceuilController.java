@@ -22,6 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -40,6 +41,7 @@ import tunifast.esprit.Entitie.Annonce;
 import tunifast.esprit.Entitie.Reservation;
 import tunifast.esprit.Service.AnnonceCrud;
 import tunifast.esprit.Utils.DataBase;
+import tunifast.esprit.Utils.TuniFastUtil;
 
 /**
  * FXML Controller class
@@ -93,6 +95,10 @@ public class AcceuilController implements Initializable {
     private Text txt55;
     @FXML
     private Text txt66;
+    @FXML
+    private Tab tabPass11;
+    @FXML
+    private ImageView img11;
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -173,5 +179,17 @@ public class AcceuilController implements Initializable {
             task.setRate(task.getRate() * -1);
             task.play();
         });
+    }
+
+    @FXML
+    private void upgrade(ActionEvent event) {
+        
+               TuniFastUtil.loadWindowMode1(getClass().getResource("profile/upgrade/upgradeForm.fxml"), "formulaire", null);
+
+    }
+
+    @FXML
+    private void actualité(ActionEvent event) {
+        TuniFastUtil.loadWindowMode1(getClass().getResource("AddAct.fxml"), "actualités", null);
     }
 }

@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,6 +19,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -28,9 +31,12 @@ import org.controlsfx.control.Rating;
 import tunifast.esprit.Entitie.Reclamation;
 import tunifast.esprit.Entitie.User;
 import tunifast.esprit.Entitie.UserSession;
+import tunifast.esprit.Entitie.rate;
 import tunifast.esprit.Service.MessageCrud;
 import tunifast.esprit.Service.ReclamationCrud;
 import tunifast.esprit.Service.UserCrud;
+import tunifast.esprit.Service.rateCrud;
+import tunifast.esprit.Service.statserv;
 import tunifast.esprit.gui.alert.AlertMaker;
 
 /**
@@ -68,13 +74,18 @@ public class ProfilePubController implements Initializable {
     private JFXTextField txtUsername;
     @FXML
     private JFXTextField txtRole;
+    @FXML
+    private Label txtRate;
+    @FXML
+    private Rating rateDef;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+    
+        
         txtUsername.setEditable(false);
         txtRole.setEditable(false);
         txtTel.setEditable(false);
@@ -88,6 +99,10 @@ public class ProfilePubController implements Initializable {
         UserCrud uc = new UserCrud();
         UserSession us = UserSession.getInstance();
         res = uc.getUserById(us.getParam());
+            statserv ss = new statserv();
+     txtRate.setText(new DecimalFormat("##.##").format(ss.getRateById(us.getParam())));
+      //  txtRate.setText(Double.toString(ss.getRateById(us.getParam())));
+        rateDef.setRating(ss.getRateById(us.getParam()));
         txtUsername.setText(res.getUsername());
         txtRole.setText(res.getRole());
         txtTel.setText(Integer.toString(res.getNumTel()));
@@ -176,10 +191,27 @@ public class ProfilePubController implements Initializable {
     private void noterHandler(ActionEvent event) {
         UserSession us = UserSession.getInstance();
         changingField.getChildren().clear();
+      
         Rating rate = new Rating();
         rate.setRating(3);
         rate.setPadding(new Insets(53, 20, 53, 20));
+        
         changingField.getChildren().addAll(rate);
+        
+      rate.ratingProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
+            System.out.println("Rating :- "+newValue);
+        double nbrRate = (double) newValue ; // rate.getRating();
+        rateCrud rat = new rateCrud();
+        rate r = new rate(nbrRate,us.getParam());
+        rat.ajouterRate(r);
+          
+        });
+//        double nbrRate = rate.getRating();
+//   
+//        rateCrud rat = new rateCrud();
+//        rate r = new rate(nbrRate,us.getParam());
+//        rat.ajouterRate(r);
+        
     }
 
     @FXML

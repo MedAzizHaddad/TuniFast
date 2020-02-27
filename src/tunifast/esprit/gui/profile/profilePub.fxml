@@ -14,8 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="368.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.ProfilePubController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="401.0" stylesheets="@../../../../resources/design.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunifast.esprit.gui.profile.ProfilePubController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -33,71 +34,26 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text accessibleRole="IMAGE_VIEW" fill="#ffff8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" textOrigin="CENTER" wrappingWidth="61.470062255859375">
-                                 <font>
-                                    <Font size="29.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="40.0" top="10.0" />
-                                 </HBox.margin>
-                              </Text>
+                              <AnchorPane prefHeight="101.0" prefWidth="155.0">
+                                 <children>
+                                    <Text accessibleRole="IMAGE_VIEW" fill="#ffff8d" layoutX="62.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" textOrigin="CENTER" wrappingWidth="57.470062255859375">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="txtRate" layoutX="70.0" layoutY="50.0" prefHeight="51.0" prefWidth="57.0" text="Label" textFill="#d0b024">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font></Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="101.0" prefWidth="30.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="164.0">
                            <children>
-                              <Label prefHeight="42.0" prefWidth="153.0" text="LABEL" textFill="#ffff8d">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Label>
+                              <Rating fx:id="rateDef" accessibleRole="IMAGE_VIEW" prefHeight="20.0" prefWidth="186.0" rating="1.0" />
                            </children>
-                        </HBox>
-                        <HBox prefHeight="23.0" prefWidth="157.0">
-                           <children>
-                              <ImageView fitHeight="27.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/star.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="6.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="17.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/star.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="63.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/star.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="6.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="86.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/star.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="6.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="40.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/star.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="6.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets right="5.0" />
-                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>
@@ -129,20 +85,14 @@
                   <VBox prefHeight="96.0" prefWidth="223.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#noterHandler" prefHeight="39.0" prefWidth="100.0" text="Noter">
-                           <padding>
-                              <Insets bottom="5.0" top="5.0" />
-                           </padding>
                            <VBox.margin>
-                              <Insets bottom="4.0" left="70.0" right="5.0" top="5.0" />
+                              <Insets bottom="4.0" left="91.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Button>
                         <BorderPane prefHeight="8.0" prefWidth="164.0" />
                         <Button mnemonicParsing="false" onAction="#signalerHandler" prefHeight="5.0" prefWidth="100.0" text="Signaler">
-                           <padding>
-                              <Insets bottom="5.0" top="5.0" />
-                           </padding>
                            <VBox.margin>
-                              <Insets bottom="4.0" left="70.0" right="5.0" top="5.0" />
+                              <Insets bottom="4.0" left="91.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Button>
                      </children>
@@ -241,7 +191,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="700.0">
                      <children>
-                        <JFXButton fx:id="btn1" layoutX="50.0" layoutY="19.0" onAction="#actionBtn" prefHeight="43.0" prefWidth="93.0" text="Fermer" />
+                        <JFXButton fx:id="btn1" layoutX="58.0" layoutY="19.0" onAction="#actionBtn" prefHeight="43.0" prefWidth="93.0" text="Fermer" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="50.0" />
                      </children>
                   </AnchorPane>
                </children>

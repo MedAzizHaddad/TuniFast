@@ -32,6 +32,8 @@ public class rateCrud {
     }
 
     public void ajouterRate(rate r) {
+        statserv ss = new statserv();
+        ss.remplir();
         try {
             String requete = "INSERT INTO rate (idRate,nbrRate,feedback,idUser,idAnnonce) VALUES (?,?,?,?,?)";
             PreparedStatement pst3 = cn3.prepareStatement(requete);
